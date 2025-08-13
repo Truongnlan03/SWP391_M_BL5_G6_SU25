@@ -1,0 +1,129 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Aug 13, 2025, 10:44:39 PM
+    Author     : DELL
+*/
+/* Định nghĩa các biến CSS để dễ quản lý màu sắc */
+:root {
+    --primary-color: #00b14f; /* Màu xanh lá cây đậm */
+    --secondary-color: #f8f9fa;
+    --text-color: #333;
+    --light-bg-color: #f0f2f5;
+    --input-border-color: #b2f2d6; /* Màu xanh lá cây nhạt */
+    --input-focus-color: rgba(0, 192, 95, 0.25);
+    --hover-color: #00c85f; /* Màu xanh lá cây sáng hơn */
+}
+
+body {
+    background-color: var(--light-bg-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--text-color);
+    padding: 2rem 1rem;
+}
+
+.form-container {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    max-width: 650px;
+    width: 100%;
+    margin: auto;
+}
+
+.header-section {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.header-section h3 {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.header-section p {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.form-control, .form-select, textarea {
+    border-radius: 8px;
+    border: 1px solid var(--input-border-color);
+    padding: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus, textarea:focus {
+    box-shadow: 0 0 0 0.25rem var(--input-focus-color);
+    border-color: var(--hover-color);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    border-radius: 8px;
+    font-weight: 600;
+    height: 48px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--hover-color);
+    border-color: var(--hover-color);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    font-weight: 500;
+    height: 48px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.alert {
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+.form-row-custom {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* CSS cho các nút trên cùng một hàng */
+.btn-group-custom {
+    display: flex;
+    gap: 10px; /* Khoảng cách giữa các nút */
+}
+
+.btn-group-custom .btn {
+    width: 50%; /* Chia đều không gian cho 2 nút */
+    margin-bottom: 0 !important; /* Loại bỏ margin dưới mặc định */
+}
