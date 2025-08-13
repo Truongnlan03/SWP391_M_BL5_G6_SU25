@@ -23,9 +23,7 @@ public class DBContext {
             String user = "sa";
             String pass = "123";
             String url = "jdbc:sqlserver://localhost:1433;databaseName=group6_SWP391";
-
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-
             connection = DriverManager.getConnection(url, user, pass);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
@@ -62,6 +60,6 @@ public class DBContext {
         } else {
             System.out.println("Kết nối cơ sở dữ liệu thất bại.");
         }
-        dbContext.closeConnection(); 
+        dbContext.closeConnection();
     }
 }

@@ -8,6 +8,8 @@ package Utils;
  *
  * @author DELL
  */
-public class Constants {
-    
+public class PasswordUtils {
+      public static String hashPassword(String password) {
+        return password;
+    }
 }

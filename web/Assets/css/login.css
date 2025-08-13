@@ -1,0 +1,119 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Aug 13, 2025, 4:38:01 PM
+    Author     : DELL
+*/
+body {
+    background-color: #f0f2f5; 
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    padding: 40px;
+    width: 100%;
+    max-width: 505px;
+    background-color: #ffffff;
+}
+
+.welcome-text {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.welcome-text h4 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #198f58;
+    margin-bottom: 0.5rem;
+}
+
+.welcome-text p {
+    font-size: 1rem;
+    color: #777;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 12px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.1);
+}
+
+.radio-group {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 25px;
+    gap: 15px;
+}
+
+.radio-group div {
+    display: flex;
+    align-items: center;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 8px;
+}
+
+.radio-group label {
+    font-weight: 500;
+    color: #198f58;
+    cursor: pointer;
+}
+
+.btn-green {
+    background-color: #25cf80;
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    border: none;
+    height: 48px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+}
+
+.btn-green:hover {
+    background-color: #0a8f51;
+}
+
+.btn-secondary-custom {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    color: #198f58;
+    border-radius: 8px;
+    font-weight: 500;
+    height: 48px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.btn-secondary-custom:hover {
+    background-color: #e2e6ea;
+    border-color: #dae0e5;
+}
+
+.alert {
+    border-radius: 8px;
+    font-size: 0.9rem;
+    padding: 12px 15px;
+}
+a {
+    color: rgb(34 157 69);
+    text-decoration: underline;
+}
