@@ -4,10 +4,12 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
          version="6.0">
-    
+    <welcome-file-list>
+        <welcome-file>home</welcome-file>
+    </welcome-file-list>
     <servlet>
         <servlet-name>HomeController</servlet-name>
-        <servlet-class>controllers.HomeController</servlet-class>
+        <servlet-class>Controller.HomeController</servlet-class>
     </servlet>
     
     <servlet-mapping>
@@ -17,7 +19,7 @@
     
     <servlet>
         <servlet-name>LoginController</servlet-name>
-        <servlet-class>controllers.LoginController</servlet-class>
+        <servlet-class>Controller.LoginController</servlet-class>
     </servlet>
     
     <servlet-mapping>
@@ -26,7 +28,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>LogoutController</servlet-name>
-        <servlet-class>controllers.LogoutController</servlet-class>
+        <servlet-class>Controller.LogoutController</servlet-class>
     </servlet>
     
     <servlet-mapping>
