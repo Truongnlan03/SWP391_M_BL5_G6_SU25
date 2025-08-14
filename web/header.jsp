@@ -39,7 +39,7 @@
                         test="${not empty sessionScope.user and (sessionScope.role == 'job-seeker' or sessionScope.role == 'recruiter')}">
                         <li class="nav-item">
                             <a class="nav-link" href="/TopJobVN/applications">
-                                <i class="fas fa-file-text"></i> Ứng tuyển
+                                Ứng tuyển
                             </a>
                         </li>
                     </c:if>
@@ -47,7 +47,7 @@
                     <c:if test="${not empty sessionScope.user and sessionScope.role == 'job-seeker'}">
                         <li class="nav-item">
                             <a class="nav-link" href="/TopJobVN/list_cv">
-                                <i class="fas fa-file-alt"></i> Quản lí CV
+                                Quản lí CV
                             </a>
                         </li>
                     </c:if>
@@ -60,17 +60,17 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="communityDropdown" role="button"
                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-users"></i> Community
+                                Đăng tin
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="communityDropdown">
                                 <li>
                                     <a class="dropdown-item" href="/TopJobVN/create-post.jsp">
-                                        <i class="fas fa-edit"></i> Create Post
+                                        Tạo bài đăng
                                     </a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="/TopJobVN/post?view=my-post">
-                                        <i class="fas fa-user-edit"></i> My Posts
+                                        Bài đăng đã tạo
                                     </a>
                                 </li>
                             </ul>
@@ -89,7 +89,7 @@
                     <c:if test="${sessionScope.role == 'admin'}">
                         <li class="nav-item">
                             <a class="nav-link" href="/TopJobVN/admin_dashboard.jsp">
-                                <i class="fas fa-tools"></i> Dashboard
+                                Dashboard
                             </a>
                         </li>
                     </c:if>
@@ -170,43 +170,37 @@
                             <div class="dropdown">
                                 <button class="btn btn-light dropdown-toggle" type="button" id="userDropdown"
                                         data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fas fa-user-circle"></i>
                                     ${sessionScope.user.fullName}
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
 
                                     <c:if test="${sessionScope.role == 'job-seeker'}">
-                                        <li><a class="dropdown-item" href="/TopJobVN/profile"><i class="fas fa-user"></i> Hồ sơ cá nhân</a></li>
-                                        <li><a class="dropdown-item" href="/TopJobVN/list_cv"><i class="fas fa-file-alt"></i>
+                                        <li><a class="dropdown-item" href="/TopJobVN/profile"> Hồ sơ cá nhân</a></li>
+                                        <li><a class="dropdown-item" href="/TopJobVN/list_cv">
                                                 CV của tôi</a></li>
-                                        <li><a class="dropdown-item" href="/TopJobVN/saved-jobs"><i class="fas fa-heart"></i>
+                                        <li><a class="dropdown-item" href="/TopJobVN/saved-jobs">
                                                 Công việc đã lưu</a></li>
-                                        <li><a class="dropdown-item" href="/TopJobVN/advanced-search"><i
-                                                    class="fas fa-search-plus"></i> Tìm kiếm việc làm nâng cao</a></li>
-                                            </c:if>
+                                        <li><a class="dropdown-item" href="/TopJobVN/advanced-search"> Tìm kiếm việc làm nâng cao</a></li>
+                                        </c:if>
 
                                     <c:if test="${sessionScope.role == 'recruiter'}">
-                                        <li><a class="dropdown-item" href="/TopJobVN/recruiter-profile"><i
-                                                    class="fas fa-user"></i> Hồ sơ cá nhân</a></li>
-                                        <li><a class="dropdown-item" href="/TopJobVN/post?view=my-post"><i
-                                                    class="fas fa-file-alt"></i> Bài đăng của tôi</a></li>
-                                        <li><a class="dropdown-item" href="/TopJobVN/saved-jobs"><i class="fas fa-heart"></i>
+                                        <li><a class="dropdown-item" href="/TopJobVN/recruiter-profile"> Hồ sơ cá nhân</a></li>
+                                        <li><a class="dropdown-item" href="/TopJobVN/post?view=my-post"> Bài đăng của tôi</a></li>
+                                        <li><a class="dropdown-item" href="/TopJobVN/saved-jobs">
                                                 Công việc đã lưu</a></li>
-                                        <li><a class="dropdown-item" href="/TopJobVN/recruitment_dashboard.jsp"><i
-                                                    class="fas fa-tachometer-alt"></i> Dashboard Control</a></li>
-                                            </c:if>
+                                        <li><a class="dropdown-item" href="/TopJobVN/recruitment_dashboard.jsp"> Dashboard</a></li>
+                                        </c:if>
 
                                     <c:if test="${sessionScope.role == 'admin'}">
-                                        <li><a class="dropdown-item" href="admin"><i class="fas fa-user"></i> Hồ sơ cá nhân</a></li>
-                                        <li><a class="dropdown-item" href="/TopJobVN/admin_dashboard.jsp"><i
-                                                    class="fas fa-tools"></i> Admin Dashboard</a></li>
-                                            </c:if>
+                                        <li><a class="dropdown-item" href="admin"> Hồ sơ cá nhân</a></li>
+                                        <li><a class="dropdown-item" href="/TopJobVN/admin_dashboard.jsp"> Dashboard</a></li>
+                                        </c:if>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
                                     <li>
                                         <a class="dropdown-item text-danger" href="/TopJobVN/logout">
-                                            <i class="fas fa-sign-out-alt"></i> Đăng xuất
+                                            Đăng xuất
                                         </a>
                                     </li>
                                 </ul>
