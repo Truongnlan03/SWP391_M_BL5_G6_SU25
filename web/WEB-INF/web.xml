@@ -27,6 +27,6 @@
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
-        <welcome-file>login</welcome-file>
+        <welcome-file>home</welcome-file>
     </welcome-file-list>
 </web-app>
