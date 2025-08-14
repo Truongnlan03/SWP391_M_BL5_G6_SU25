@@ -6,15 +6,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     Created on : Aug 13, 2025, 10:44:39 PM
     Author     : DELL
 */
-/* Định nghĩa các biến CSS để dễ quản lý màu sắc */
 :root {
-    --primary-color: #00b14f; /* Màu xanh lá cây đậm */
+    --primary-color: #00b14f;
     --secondary-color: #f8f9fa;
     --text-color: #333;
     --light-bg-color: #f0f2f5;
-    --input-border-color: #b2f2d6; /* Màu xanh lá cây nhạt */
+    --input-border-color: #b2f2d6;
     --input-focus-color: rgba(0, 192, 95, 0.25);
-    --hover-color: #00c85f; /* Màu xanh lá cây sáng hơn */
+    --hover-color: #00c85f;
 }
 
 body {
@@ -117,13 +116,12 @@ a:hover {
     text-decoration: underline;
 }
 
-/* CSS cho các nút trên cùng một hàng */
 .btn-group-custom {
     display: flex;
-    gap: 10px; /* Khoảng cách giữa các nút */
+    gap: 10px;
 }
 
 .btn-group-custom .btn {
-    width: 50%; /* Chia đều không gian cho 2 nút */
-    margin-bottom: 0 !important; /* Loại bỏ margin dưới mặc định */
+    width: 50%;
+    margin-bottom: 0 !important;
 }

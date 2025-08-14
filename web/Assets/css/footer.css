@@ -1,0 +1,107 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Aug 14, 2025, 4:01:26 PM
+    Author     : DELL
+*/
+
+.footer-section {
+    background-color: #ffffff;
+    color: #0a101e;
+    padding: 60px 0 0 0;
+    border-top: 1px solid #e0e0e0;
+}
+
+.footer-heading {
+    color: #0a101e;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.footer-heading::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background-color: #28a745;
+    margin-top: 10px;
+}
+
+.footer-link-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer-link-list li {
+    margin-bottom: 12px;
+}
+
+.footer-link-list a {
+    color: #6c757d;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-link-list a:hover {
+    color: #28a745;
+}
+
+.contact-info p {
+    color: #6c757d;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.contact-info a {
+    color: #28a745;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background: #0a101e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.logo-text h3 {
+    color: #20643d;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 0;
+}
+
+.logo-text p {
+    color: #6c757d;
+    font-size: 14px;
+    margin: 0;
+}
+
+.copyright-section {
+    border-top: 1px solid #e0e0e0;
+    padding: 20px 0;
+}
+
+.copyright-section p {
+    margin: 0;
+}
