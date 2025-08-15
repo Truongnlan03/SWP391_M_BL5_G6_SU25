@@ -1,16 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Models;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.sql.Timestamp;
 
-/**
- *
- * @author DELL
- */
 public class Post {
 
     private int id;
@@ -30,6 +23,7 @@ public class Post {
     private String companyName;
     private String companyLogo;
     private String salary;
+
     private String location;
     private String jobType;
     private String experience;
@@ -48,11 +42,64 @@ public class Post {
     private String companyWebsite;
     private String companyDescription;
     private String keywords;
+    private Integer experienceYears;
+    private String educationLevel;
+    private String skillsRequired;
+    private String languagesRequired;
+    private String workEnvironment;
+    private String jobLevel;
+    private String contractType;
+    private String probationPeriod;
+    private Date applicationDeadline;
+    private Boolean isFeatured;
+    private Boolean isUrgent;
+    private Integer searchPriority;
+    private BigDecimal salaryMin;
+    private BigDecimal salaryMax;
+    private String description;
 
     public Post() {
     }
 
-    public Post(int id, int userId, String userType, Integer parentId, String postType, String title, String content, String status, int viewCount, int likeCount, int commentCount, Timestamp createdAt, Timestamp updatedAt, Timestamp deletedAt, String companyName, String companyLogo, String salary, String location, String jobType, String experience, Date deadline, String workingTime, String jobDescription, String requirements, String benefits, String contactAddress, String applicationMethod, Integer quantity, String rank, String industry, String contactPerson, String companySize, String companyWebsite, String companyDescription, String keywords) {
+    public Post(
+            int id,
+            int userId,
+            String userType,
+            Integer parentId,
+            String postType,
+            String title,
+            String content,
+            String status,
+            int viewCount,
+            int likeCount,
+            int commentCount,
+            Timestamp createdAt,
+            Timestamp updatedAt,
+            Timestamp deletedAt,
+            String companyName,
+            String companyLogo,
+            String salary,
+            BigDecimal salaryMin,
+            BigDecimal salaryMax,
+            String location,
+            String jobType,
+            String experience,
+            Date deadline,
+            String workingTime,
+            String jobDescription,
+            String requirements,
+            String benefits,
+            String contactAddress,
+            String applicationMethod,
+            Integer quantity,
+            String rank,
+            String industry,
+            String contactPerson,
+            String companySize,
+            String companyWebsite,
+            String companyDescription,
+            String keywords
+    ) {
         this.id = id;
         this.userId = userId;
         this.userType = userType;
@@ -70,6 +117,8 @@ public class Post {
         this.companyName = companyName;
         this.companyLogo = companyLogo;
         this.salary = salary;
+        this.salaryMin = salaryMin;
+        this.salaryMax = salaryMax;
         this.location = location;
         this.jobType = jobType;
         this.experience = experience;
@@ -90,6 +139,7 @@ public class Post {
         this.keywords = keywords;
     }
 
+    // Getter & Setter
     public int getId() {
         return id;
     }
@@ -224,6 +274,22 @@ public class Post {
 
     public void setSalary(String salary) {
         this.salary = salary;
+    }
+
+    public BigDecimal getSalaryMin() {
+        return salaryMin;
+    }
+
+    public void setSalaryMin(BigDecimal salaryMin) {
+        this.salaryMin = salaryMin;
+    }
+
+    public BigDecimal getSalaryMax() {
+        return salaryMax;
+    }
+
+    public void setSalaryMax(BigDecimal salaryMax) {
+        this.salaryMax = salaryMax;
     }
 
     public String getLocation() {
@@ -370,4 +436,106 @@ public class Post {
         this.keywords = keywords;
     }
 
+    public Integer getExperienceYears() {
+        return experienceYears;
+    }
+
+    public void setExperienceYears(Integer experienceYears) {
+        this.experienceYears = experienceYears;
+    }
+
+    public String getEducationLevel() {
+        return educationLevel;
+    }
+
+    public void setEducationLevel(String educationLevel) {
+        this.educationLevel = educationLevel;
+    }
+
+    public String getSkillsRequired() {
+        return skillsRequired;
+    }
+
+    public void setSkillsRequired(String skillsRequired) {
+        this.skillsRequired = skillsRequired;
+    }
+
+    public String getLanguagesRequired() {
+        return languagesRequired;
+    }
+
+    public void setLanguagesRequired(String languagesRequired) {
+        this.languagesRequired = languagesRequired;
+    }
+
+    public String getWorkEnvironment() {
+        return workEnvironment;
+    }
+
+    public void setWorkEnvironment(String workEnvironment) {
+        this.workEnvironment = workEnvironment;
+    }
+
+    public String getJobLevel() {
+        return jobLevel;
+    }
+
+    public void setJobLevel(String jobLevel) {
+        this.jobLevel = jobLevel;
+    }
+
+    public String getContractType() {
+        return contractType;
+    }
+
+    public void setContractType(String contractType) {
+        this.contractType = contractType;
+    }
+
+    public String getProbationPeriod() {
+        return probationPeriod;
+    }
+
+    public void setProbationPeriod(String probationPeriod) {
+        this.probationPeriod = probationPeriod;
+    }
+
+    public Date getApplicationDeadline() {
+        return applicationDeadline;
+    }
+
+    public void setApplicationDeadline(Date applicationDeadline) {
+        this.applicationDeadline = applicationDeadline;
+    }
+
+    public Boolean getIsFeatured() {
+        return isFeatured;
+    }
+
+    public void setIsFeatured(Boolean isFeatured) {
+        this.isFeatured = isFeatured;
+    }
+
+    public Boolean getIsUrgent() {
+        return isUrgent;
+    }
+
+    public void setIsUrgent(Boolean isUrgent) {
+        this.isUrgent = isUrgent;
+    }
+
+    public Integer getSearchPriority() {
+        return searchPriority;
+    }
+
+    public void setSearchPriority(Integer searchPriority) {
+        this.searchPriority = searchPriority;
+    }
+    public String getDescription() {
+    return description;
+}
+
+public void setDescription(String description) {
+    this.description = description;
+}
 }
