@@ -9,31 +9,55 @@
         <div class="alert alert-warning">Không có bài đăng nào.</div>
     </c:if>
 
-    <c:forEach var="post" items="${postList}">
-        <div class="card mb-4">
-            <div class="card-header bg-primary text-white">
-                <i class="fas fa-briefcase"></i> ${post.title}
-            </div>
-            <div class="card-body">
-                <!-- Thông tin công việc -->
-                <p><strong>Mức lương:</strong> ${post.salaryMin} - ${post.salaryMax}</p>
-                <p><strong>Địa điểm:</strong> ${post.location}</p>
-                <p><strong>Loại công việc:</strong> ${post.jobType}</p>
-                <p><strong>Kinh nghiệm:</strong> ${post.experience}</p>
-                <p><strong>Ngày hết hạn:</strong> ${post.deadline}</p>
-                <p><strong>Số lượng tuyển:</strong> ${post.quantity}</p>
+    <div class="row">
+        <c:forEach var="post" items="${postList}">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm border">
+                    <div class="card-body d-flex flex-column">
+                        <!-- Logo công ty -->
+                        <div class="mb-3 text-center">
+                            <img src="${post.companyLogo}" alt="Logo Công ty" class="img-fluid" style="max-height: 50px;">
+                        </div>
 
-                <!-- Mô tả & Yêu cầu -->
-                <p><strong>Mô tả công việc:</strong><br>${post.description}</p>
-                <p><strong>Yêu cầu:</strong><br>${post.requirements}</p>
-                <p><strong>Quyền lợi:</strong><br>${post.benefits}</p>
+                        <!-- Tiêu đề -->
+                        <h5 class="card-title mb-1">
+                            <a href="postdetail?id=${post.id}" class="text-decoration-none text-dark fw-bold">
+                                ${post.title}
+                            </a>
+                        </h5>
 
-                <!-- Liên hệ -->
-                <p><strong>Địa chỉ liên hệ:</strong> ${post.contactAddress}</p>
-                <p><strong>Hình thức nộp hồ sơ:</strong> ${post.applicationMethod}</p>
+                        <!-- Tên công ty -->
+                        <p class="text-muted mb-2">${post.companyName}</p>
+
+                        <!-- Lương & Địa điểm -->
+                        <div class="mb-2">
+                            <span class="badge bg-light text-dark border">
+                                ${post.salaryMin} - ${post.salaryMax} triệu
+                            </span>
+                            <span class="badge bg-light text-dark border">
+                                ${post.location}
+                            </span>
+                        </div>
+
+                        <!-- Tags khác (job type, nổi bật...) -->
+                        <div class="mb-3">
+                            <span class="badge bg-secondary">${post.jobType}</span>
+                            <c:if test="${post.isFeatured}">
+                                <span class="badge bg-warning text-dark">Nổi bật</span>
+                            </c:if>
+                        </div>
+
+                        <!-- Nút xem chi tiết -->
+                        <div class="mt-auto">
+                            <a href="postdetail?id=${post.id}" class="btn btn-outline-primary w-100">
+                                Xem chi tiết
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </c:forEach>
+        </c:forEach>
+    </div>
 </div>
 
 <jsp:include page="footer.jsp" />
