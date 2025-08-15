@@ -1,0 +1,246 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Aug 15, 2025, 5:58:55 PM
+    Author     : DELL
+*/
+.text-primary {
+    color: #28a745 !important;
+}
+
+.btn-primary, .badge.bg-primary {
+    color: #ffffff !important;
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+}
+
+.btn-primary:hover {
+    background-color: #218838 !important;
+    border-color: #1e7e34 !important;
+}
+
+.btn-outline-primary {
+    color: #28a745 !important;
+    border-color: #28a745 !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+    color: white !important;
+}
+
+.profile-section {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+    overflow: hidden;
+    border: 1px solid #e9ecef;
+}
+
+.section-header {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    padding: 20px 25px;
+    border-bottom: none;
+    position: relative;
+}
+
+.section-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #20c997, #17a2b8);
+}
+
+.section-header h5 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.section-body {
+    padding: 25px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 30px;
+    border-left: 2px solid #e9ecef;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 0;
+    width: 14px;
+    height: 14px;
+    background: #28a745;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 3px #e9ecef;
+}
+
+.timeline-item.current::before {
+    background: #17a2b8;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(23, 162, 184, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(23, 162, 184, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(23, 162, 184, 0);
+    }
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.item-title {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1.05rem;
+    margin-bottom: 5px;
+}
+
+.item-company {
+    color: #28a745;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.item-meta {
+    color: #6c757d;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+.item-description {
+    color: #495057;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.skills-tag {
+    display: inline-block;
+    background: #e8f5e8;
+    color: #28a745;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    margin: 2px;
+    border: 1px solid #c3e6cb;
+}
+
+.current-badge {
+    background: linear-gradient(45deg, #17a2b8, #20c997);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.gpa-badge {
+    background: linear-gradient(45deg, #ffc107, #fd7e14);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 50px 20px;
+    color: #6c757d;
+}
+
+.empty-state i {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #dee2e6;
+}
+
+.section-actions {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.item-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-action {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.credential-link {
+    color: #28a745;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.credential-link:hover {
+    text-decoration: underline;
+}
+
+.certificate-image {
+    max-width: 60px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+@media (max-width: 768px) {
+    .item-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .section-actions {
+        position: static;
+        transform: none;
+        margin-top: 15px;
+    }
+
+    .section-header {
+        padding: 15px 20px;
+    }
+
+    .section-body {
+        padding: 20px;
+    }
+
+    .timeline-item {
+        padding-left: 30px;
+    }
+}

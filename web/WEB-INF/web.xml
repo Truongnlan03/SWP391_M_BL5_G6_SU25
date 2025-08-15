@@ -26,6 +26,14 @@
         <servlet-name>LogoutController</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>ProfileJobSeekerController</servlet-name>
+        <servlet-class>Controller.ProfileJobSeekerController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProfileJobSeekerController</servlet-name>
+        <url-pattern>/profilejobseeker</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>home</welcome-file>
     </welcome-file-list>

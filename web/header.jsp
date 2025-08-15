@@ -175,7 +175,7 @@
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
 
                                     <c:if test="${sessionScope.role == 'job-seeker'}">
-                                        <li><a class="dropdown-item" href="/TopJobVN/profile"> Hồ sơ cá nhân</a></li>
+                                        <li><a class="dropdown-item" href="/TopJobVN/profilejobseeker"> Hồ sơ cá nhân</a></li>
                                         <li><a class="dropdown-item" href="/TopJobVN/list_cv">
                                                 CV của tôi</a></li>
                                         <li><a class="dropdown-item" href="/TopJobVN/saved-jobs">
