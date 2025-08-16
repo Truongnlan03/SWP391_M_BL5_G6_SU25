@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class PostDAO extends DBContext {
+   
 
     public boolean insertPost(Post post) {
         String sql = """
@@ -190,4 +191,136 @@ public class PostDAO extends DBContext {
 
         return list;
     }
+public Post getPostByPostId(int postId) {
+    String sql = "SELECT * FROM posts WHERE id = ?";
+
+    try (Connection conn = getConnection();
+         PreparedStatement ps = conn.prepareStatement(sql)) {
+
+        ps.setInt(1, postId);
+
+        try (ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                Post p = new Post();
+                p.setId(rs.getInt("id"));
+                p.setUserId(rs.getInt("user_id"));
+                p.setTitle(rs.getString("title"));
+                p.setDescription(rs.getString("description"));
+                p.setLocation(rs.getString("location"));
+                p.setSalary(rs.getString("salary"));
+
+                BigDecimal salaryMin = rs.getBigDecimal("salary_min");
+                BigDecimal salaryMax = rs.getBigDecimal("salary_max");
+
+                p.setSalaryMin(salaryMin != null ? salaryMin : BigDecimal.ZERO);
+                p.setSalaryMax(salaryMax != null ? salaryMax : BigDecimal.ZERO);
+
+                p.setDeadline(rs.getDate("deadline"));
+                p.setStatus(rs.getString("status"));
+                p.setExperienceYears(rs.getObject("experience_years") != null ? rs.getInt("experience_years") : 0);
+                p.setEducationLevel(rs.getString("education_level"));
+                p.setSkillsRequired(rs.getString("skills_required"));
+                p.setLanguagesRequired(rs.getString("languages_required"));
+                p.setWorkEnvironment(rs.getString("work_environment"));
+                p.setJobLevel(rs.getString("job_level"));
+                p.setContractType(rs.getString("contract_type"));
+                p.setProbationPeriod(rs.getString("probation_period"));
+                p.setApplicationDeadline(rs.getDate("application_deadline"));
+                p.setIsFeatured(rs.getBoolean("is_featured"));
+                p.setIsUrgent(rs.getBoolean("is_urgent"));
+                p.setSearchPriority(rs.getObject("search_priority") != null ? rs.getInt("search_priority") : 0);
+                p.setCreatedAt(rs.getTimestamp("created_at"));
+                p.setUpdatedAt(rs.getTimestamp("updated_at"));
+
+                return p;
+            }
+        }
+    } catch (SQLException e) {
+        Logger.getLogger(PostDAO.class.getName())
+              .log(Level.SEVERE, "Error fetching post by ID", e);
+    }
+
+    return null;
 }
+    public boolean updatePost(Post post) throws SQLException {
+    String sql = "UPDATE posts SET title=?, content=?, salary=?, location=?, job_type=?, " +
+                 "experience=?, deadline=?, working_time=?, job_description=?, requirements=?, " +
+                 "benefits=?, contact_address=?, application_method=?, quantity=?, rank=?, " +
+                 "industry=?, contact_person=?, company_size=?, company_website=?, " +
+                 "company_description=?, keywords=?, updated_at=NOW() " +
+                 "WHERE id=? AND user_id=?";
+    try (Connection conn = getConnection();
+         PreparedStatement ps = conn.prepareStatement(sql)) {
+        ps.setString(1, post.getTitle());
+        ps.setString(2, post.getContent());
+        ps.setString(3, post.getSalary());
+        ps.setString(4, post.getLocation());
+        ps.setString(5, post.getJobType());
+        ps.setString(6, post.getExperience());
+        ps.setDate(7, post.getDeadline());
+        ps.setString(8, post.getWorkingTime());
+        ps.setString(9, post.getJobDescription());
+        ps.setString(10, post.getRequirements());
+        ps.setString(11, post.getBenefits());
+        ps.setString(12, post.getContactAddress());
+        ps.setString(13, post.getApplicationMethod());
+        if (post.getQuantity() != null) {
+            ps.setInt(14, post.getQuantity());
+        } else {
+            ps.setNull(14, java.sql.Types.INTEGER);
+        }
+        ps.setString(15, post.getRank());
+        ps.setString(16, post.getIndustry());
+        ps.setString(17, post.getContactPerson());
+        ps.setString(18, post.getCompanySize());
+        ps.setString(19, post.getCompanyWebsite());
+        ps.setString(20, post.getCompanyDescription());
+        ps.setString(21, post.getKeywords());
+        ps.setInt(22, post.getId());
+        ps.setInt(23, post.getUserId());
+        return ps.executeUpdate() > 0;
+    }
+}
+
+public boolean deletePost(int postId, int userId) throws SQLException {
+    String sql = "DELETE FROM posts WHERE id = ? AND user_id = ?";
+    try (Connection conn = getConnection();
+         PreparedStatement ps = conn.prepareStatement(sql)) {
+        ps.setInt(1, postId);
+        ps.setInt(2, userId);
+        return ps.executeUpdate() > 0;
+    }
+}
+
+public List<Post> getAllPosts() {
+    List<Post> list = new ArrayList<>();
+    String sql = "SELECT * FROM posts ORDER BY created_at DESC";
+    try (Connection conn = getConnection();
+         PreparedStatement ps = conn.prepareStatement(sql);
+         ResultSet rs = ps.executeQuery()) {
+        while (rs.next()) {
+            Post p = new Post();
+            p.setId(rs.getInt("id"));
+            p.setUserId(rs.getInt("user_id"));
+            p.setTitle(rs.getString("title"));
+            p.setContent(rs.getString("content"));
+            p.setLocation(rs.getString("location"));
+            p.setSalary(rs.getString("salary"));
+            p.setDeadline(rs.getDate("deadline"));
+            p.setStatus(rs.getString("status"));
+            p.setCreatedAt(rs.getTimestamp("created_at"));
+            list.add(p);
+        }
+    } catch (SQLException e) {
+        Logger.getLogger(PostDAO.class.getName())
+              .log(Level.SEVERE, "Error fetching all posts", e);
+    }
+    return list;
+}
+
+   
+
+}
+
+
+
