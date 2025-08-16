@@ -45,12 +45,19 @@
                     </c:if>
                     <!-- CV Management for job seekers -->
                     <c:if test="${not empty sessionScope.user and sessionScope.role == 'job-seeker'}">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/TopJobVN/list_cv">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="cvDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
                                 Quản lí CV
                             </a>
+                            <ul class="dropdown-menu" aria-labelledby="cvDropdown">
+                                <li><a class="dropdown-item" href="/TopJobVN/create-cv">Tạo mới CV</a></li>
+                                <li><a class="dropdown-item" href="/TopJobVN/list-cv">Danh sách CV</a></li>
+                            </ul>
                         </li>
                     </c:if>
+
+
                     <li class="nav-item">
                         <a class="nav-link" href="/TopJobVN/BlogController">
                             Blog
