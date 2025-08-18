@@ -16,7 +16,7 @@ import Models.JobSeeker;
 public class JobSeekerDAO extends DBContext {
 
     public boolean updateContactInfo(JobSeeker jobSeeker) {
-        String sql = "UPDATE [group6_SWP391].[dbo].[Job_Seekers] SET full_name = ?, email = ?, phone = ?, address = ?, updated_at = GETDATE() WHERE id = ?";
+        String sql = "UPDATE [project_SWP391].[dbo].[Job_Seekers] SET full_name = ?, email = ?, phone = ?, address = ?, updated_at = GETDATE() WHERE id = ?";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setString(1, jobSeeker.getFullName());
             ps.setString(2, jobSeeker.getEmail());

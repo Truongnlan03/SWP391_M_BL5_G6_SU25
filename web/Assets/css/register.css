@@ -42,7 +42,7 @@ body {
     margin-bottom: 2.5rem;
 }
 
-.header-section h3 {
+.header-section h4 {
     color: var(--primary-color);
     font-weight: 700;
     font-size: 2rem;

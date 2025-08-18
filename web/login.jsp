@@ -23,12 +23,24 @@
             .btn-group-custom .btn {
                 width: 50%;
             }
+            .navbar-brand {
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                text-align: center;
+                margin-top: 100px;
+            }
         </style>
     </head>
     <body>
         <div class="card">
+            <div class="d-flex justify-content-center mb-4">
+                <a class="navbar-brand" href="home">
+                    <img src="Assets/image/logo/logo.png" alt="TopJobVN Logo" height="80">
+                </a>
+            </div>
             <div class="welcome-text">
-                <h4>Chào mừng bạn đã quay trở lại</h4>
+                <h3>Chào mừng bạn đã quay trở lại</h3>
                 <p>Cùng xây dựng một hồ sơ nổi bật và nhận được các cơ hội sự nghiệp lý tưởng</p>
             </div>
             <form action="login" method="post">

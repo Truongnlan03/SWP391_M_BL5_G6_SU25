@@ -16,8 +16,13 @@
     </head>
     <body>
         <div class="form-container">
+            <div class="d-flex justify-content-center mb-4">
+                <a class="navbar-brand" href="home">
+                    <img src="Assets/image/logo/logo.png" alt="TopJobVN Logo" height="100">
+                </a>
+            </div>
             <div class="header-section">
-                <h3>Chào mừng bạn đến với TopJobVN</h3>
+                <h4>Chào mừng bạn đến với TopJobVN</h4>
                 <p>Cùng xây dựng một hồ sơ nổi bật và nhận được các cơ hội sự nghiệp lý tưởng</p>
             </div>
 

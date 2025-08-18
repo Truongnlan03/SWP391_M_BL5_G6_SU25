@@ -44,7 +44,12 @@
                 <div class="col-lg-4">
                     <div class="profile-section">
                         <div class="section-body text-center">
-
+                            <form id="avatarForm" method="post" action="avatar-upload" enctype="multipart/form-data">
+                                <input type="hidden" name="action" value="uploadAvatar">
+                                <input type="file" name="avatarFile" id="avatarFile" class="d-none" accept="image/png, image/jpeg" onchange="document.getElementById('avatarForm').submit();">
+                                <img src="${sessionScope.user.profilePicture != null ? sessionScope.user.profilePicture : 'assets/img/elements/user.png'}" alt="Avatar" class="rounded-circle img-fluid" style="width: 150px; cursor:pointer;" onclick="document.getElementById('avatarFile').click();">
+                                <small class="text-muted d-block mt-2">Nhấp vào ảnh để thay đổi</small>
+                            </form>
                             <h5 class="my-3">${sessionScope.user.fullName}</h5>
                             <p class="text-muted mb-1">${sessionScope.user.desiredJobTitle != null ? sessionScope.user.desiredJobTitle : 'Tìm việc làm'}</p>
 <!--                            <p class="text-muted mb-4">${sessionScope.user.address != null ? sessionScope.user.address : 'Việt Nam'}</p>-->

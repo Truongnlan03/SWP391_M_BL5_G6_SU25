@@ -25,10 +25,10 @@ public class ViewAllPostServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        PostDAO dao = new PostDAO();
-        List<Post> postList = dao.getAllPosts();
-        
-        request.setAttribute("postList", postList);
-        request.getRequestDispatcher("viewpost.jsp").forward(request, response);
+//        PostDAO dao = new PostDAO();
+//        List<Post> postList = dao.getAllPosts();
+//        
+//        request.setAttribute("postList", postList);
+//        request.getRequestDispatcher("viewpost.jsp").forward(request, response);
     }
 }

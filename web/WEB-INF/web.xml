@@ -34,6 +34,14 @@
         <servlet-name>ProfileJobSeekerController</servlet-name>
         <url-pattern>/profilejobseeker</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>ResetPasswordController</servlet-name>
+        <servlet-class>Controller.ResetPasswordController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResetPasswordController</servlet-name>
+        <url-pattern>/reset-password</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>home</welcome-file>
     </welcome-file-list>
