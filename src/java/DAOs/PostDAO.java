@@ -1,9 +1,7 @@
 package DAOs;
 
 import DBContext.DBContext;
-import Models.Post;
-import java.math.BigDecimal;
-
+import Models.Posts;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,9 +14,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class PostDAO extends DBContext {
-   
 
-    public boolean insertPost(Post post) {
+    // Insert bài viết mới
+    public boolean insertPost(Posts post) {
         String sql = """
         INSERT INTO Posts (
             user_id, user_type, post_type, title, content, status, created_at, 
@@ -26,9 +24,10 @@ public class PostDAO extends DBContext {
             job_description, requirements, benefits, contact_address, 
             application_method, quantity
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    """;
+        """;
 
-        try (Connection conn = getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
+        try (Connection conn = getConnection(); 
+             PreparedStatement ps = conn.prepareStatement(sql)) {
 
             if (conn == null || conn.isClosed()) {
                 Logger.getLogger(PostDAO.class.getName())
@@ -55,7 +54,7 @@ public class PostDAO extends DBContext {
                 ps.setNull(8, Types.VARCHAR);
             }
 
-            // salary (varchar)
+            // salary
             if (post.getSalary() != null && !post.getSalary().trim().isEmpty()) {
                 ps.setString(9, post.getSalary());
             } else {
@@ -83,7 +82,7 @@ public class PostDAO extends DBContext {
                 ps.setNull(12, Types.VARCHAR);
             }
 
-            // ✅ deadline: nếu null phải dùng setNull
+            // deadline
             if (post.getDeadline() != null) {
                 ps.setDate(13, post.getDeadline());
             } else {
@@ -140,84 +139,30 @@ public class PostDAO extends DBContext {
         }
     }
 
-    public List<Post> getPostsByUserId(int userId) {
-        List<Post> list = new ArrayList<>();
-        String sql = "SELECT * FROM posts WHERE user_id = ? ORDER BY created_at DESC";
+    // Lấy danh sách bài viết theo user_id
+    public List<Posts> getPostsByUserId(int userId) {
+        List<Posts> posts = new ArrayList<>();
+        String sql = "SELECT * FROM Posts WHERE user_id = ? ";
 
-        try (Connection conn = getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
+        try (Connection conn = getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, userId);
+            ResultSet rs = ps.executeQuery();
 
-            try (ResultSet rs = ps.executeQuery()) {
-                while (rs.next()) {
-                    Post p = new Post();
-                    p.setId(rs.getInt("id"));
-                    p.setUserId(rs.getInt("user_id"));
-                    p.setTitle(rs.getString("title"));
-                    p.setDescription(rs.getString("description"));
-                    p.setLocation(rs.getString("location"));
-                    p.setSalary(rs.getString("salary"));
-
-                    BigDecimal salaryMin = rs.getBigDecimal("salary_min");
-                    BigDecimal salaryMax = rs.getBigDecimal("salary_max");
-
-                    p.setSalaryMin(salaryMin != null ? salaryMin : BigDecimal.ZERO);
-                    p.setSalaryMax(salaryMax != null ? salaryMax : BigDecimal.ZERO);
-
-                    p.setDeadline(rs.getDate("deadline"));
-                    p.setStatus(rs.getString("status"));
-                    p.setExperienceYears(rs.getObject("experience_years") != null ? rs.getInt("experience_years") : 0);
-                    p.setEducationLevel(rs.getString("education_level"));
-                    p.setSkillsRequired(rs.getString("skills_required"));
-                    p.setLanguagesRequired(rs.getString("languages_required"));
-                    p.setWorkEnvironment(rs.getString("work_environment"));
-                    p.setJobLevel(rs.getString("job_level"));
-                    p.setContractType(rs.getString("contract_type"));
-                    p.setProbationPeriod(rs.getString("probation_period"));
-                    p.setApplicationDeadline(rs.getDate("application_deadline"));
-                    p.setIsFeatured(rs.getBoolean("is_featured"));
-                    p.setIsUrgent(rs.getBoolean("is_urgent"));
-                    p.setSearchPriority(rs.getObject("search_priority") != null ? rs.getInt("search_priority") : 0);
-                    p.setCreatedAt(rs.getTimestamp("created_at"));
-                    p.setUpdatedAt(rs.getTimestamp("updated_at"));
-
-                    list.add(p);
-                }
-            }
-        } catch (SQLException e) {
-            Logger.getLogger(PostDAO.class.getName())
-                    .log(Level.SEVERE, "Error fetching posts", e);
-        }
-
-        return list;
-    }
-public Post getPostByPostId(int postId) {
-    String sql = "SELECT * FROM posts WHERE id = ?";
-
-    try (Connection conn = getConnection();
-         PreparedStatement ps = conn.prepareStatement(sql)) {
-
-        ps.setInt(1, postId);
-
-        try (ResultSet rs = ps.executeQuery()) {
-            if (rs.next()) {
-                Post p = new Post();
+            while (rs.next()) {
+                Posts p = new Posts();
                 p.setId(rs.getInt("id"));
                 p.setUserId(rs.getInt("user_id"));
                 p.setTitle(rs.getString("title"));
-                p.setDescription(rs.getString("description"));
+                p.setContent(rs.getString("content"));
                 p.setLocation(rs.getString("location"));
                 p.setSalary(rs.getString("salary"));
-
-                BigDecimal salaryMin = rs.getBigDecimal("salary_min");
-                BigDecimal salaryMax = rs.getBigDecimal("salary_max");
-
-                p.setSalaryMin(salaryMin != null ? salaryMin : BigDecimal.ZERO);
-                p.setSalaryMax(salaryMax != null ? salaryMax : BigDecimal.ZERO);
-
+                p.setSalaryMin(rs.getBigDecimal("salary_min"));
+                p.setSalaryMax(rs.getBigDecimal("salary_max"));
                 p.setDeadline(rs.getDate("deadline"));
                 p.setStatus(rs.getString("status"));
-                p.setExperienceYears(rs.getObject("experience_years") != null ? rs.getInt("experience_years") : 0);
+                p.setExperienceYears(rs.getInt("experience_years"));
                 p.setEducationLevel(rs.getString("education_level"));
                 p.setSkillsRequired(rs.getString("skills_required"));
                 p.setLanguagesRequired(rs.getString("languages_required"));
@@ -228,21 +173,28 @@ public Post getPostByPostId(int postId) {
                 p.setApplicationDeadline(rs.getDate("application_deadline"));
                 p.setIsFeatured(rs.getBoolean("is_featured"));
                 p.setIsUrgent(rs.getBoolean("is_urgent"));
-                p.setSearchPriority(rs.getObject("search_priority") != null ? rs.getInt("search_priority") : 0);
+                p.setSearchPriority(rs.getInt("search_priority"));
                 p.setCreatedAt(rs.getTimestamp("created_at"));
                 p.setUpdatedAt(rs.getTimestamp("updated_at"));
+                // map thêm nếu cần
 
-                return p;
+                posts.add(p);
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-    } catch (SQLException e) {
-        Logger.getLogger(PostDAO.class.getName())
-              .log(Level.SEVERE, "Error fetching post by ID", e);
+        return posts;
     }
-
-    return null;
+    public boolean deletePost(int postId, int userId) throws SQLException {
+    String sql = "DELETE FROM posts WHERE id = ? AND user_id = ?";
+    try (Connection conn = getConnection();
+         PreparedStatement ps = conn.prepareStatement(sql)) {
+        ps.setInt(1, postId);
+        ps.setInt(2, userId);
+        return ps.executeUpdate() > 0;
+    }
 }
-    public boolean updatePost(Post post) throws SQLException {
+public boolean updatePost(Posts post) throws SQLException {
     String sql = "UPDATE posts SET title=?, content=?, salary=?, location=?, job_type=?, " +
                  "experience=?, deadline=?, working_time=?, job_description=?, requirements=?, " +
                  "benefits=?, contact_address=?, application_method=?, quantity=?, rank=?, " +
@@ -281,46 +233,75 @@ public Post getPostByPostId(int postId) {
         return ps.executeUpdate() > 0;
     }
 }
-
-public boolean deletePost(int postId, int userId) throws SQLException {
-    String sql = "DELETE FROM posts WHERE id = ? AND user_id = ?";
+public Posts getPostById(int postId) {
+    String sql = "SELECT * FROM Posts WHERE id = ?";
     try (Connection conn = getConnection();
          PreparedStatement ps = conn.prepareStatement(sql)) {
         ps.setInt(1, postId);
-        ps.setInt(2, userId);
-        return ps.executeUpdate() > 0;
-    }
-}
+        try (ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                Posts p = new Posts();
+                p.setId(rs.getInt("id"));
+                p.setUserId(rs.getInt("user_id"));
+                p.setUserType(rs.getString("user_type"));
+                p.setPostType(rs.getString("post_type"));
+                p.setTitle(rs.getString("title"));
+                p.setContent(rs.getString("content"));
+                p.setStatus(rs.getString("status"));
+                p.setCreatedAt(rs.getTimestamp("created_at"));
+                p.setUpdatedAt(rs.getTimestamp("updated_at"));
 
-public List<Post> getAllPosts() {
-    List<Post> list = new ArrayList<>();
-    String sql = "SELECT * FROM posts ORDER BY created_at DESC";
-    try (Connection conn = getConnection();
-         PreparedStatement ps = conn.prepareStatement(sql);
-         ResultSet rs = ps.executeQuery()) {
-        while (rs.next()) {
-            Post p = new Post();
-            p.setId(rs.getInt("id"));
-            p.setUserId(rs.getInt("user_id"));
-            p.setTitle(rs.getString("title"));
-            p.setContent(rs.getString("content"));
-            p.setLocation(rs.getString("location"));
-            p.setSalary(rs.getString("salary"));
-            p.setDeadline(rs.getDate("deadline"));
-            p.setStatus(rs.getString("status"));
-            p.setCreatedAt(rs.getTimestamp("created_at"));
-            list.add(p);
+                p.setCompanyName(rs.getString("company_name"));
+                p.setSalary(rs.getString("salary"));
+                p.setLocation(rs.getString("location"));
+                p.setJobType(rs.getString("job_type"));
+                p.setExperience(rs.getString("experience"));
+                p.setDeadline(rs.getDate("deadline"));
+
+                p.setJobDescription(rs.getString("job_description"));
+                p.setRequirements(rs.getString("requirements"));
+                p.setBenefits(rs.getString("benefits"));
+                p.setContactAddress(rs.getString("contact_address"));
+                p.setApplicationMethod(rs.getString("application_method"));
+
+                int quantity = rs.getInt("quantity");
+                if (!rs.wasNull()) {
+                    p.setQuantity(quantity);
+                }
+
+                // các field bổ sung từ updatePost
+                p.setWorkingTime(rs.getString("working_time"));
+                p.setRank(rs.getString("rank"));
+                p.setIndustry(rs.getString("industry"));
+                p.setContactPerson(rs.getString("contact_person"));
+                p.setCompanySize(rs.getString("company_size"));
+                p.setCompanyWebsite(rs.getString("company_website"));
+                p.setCompanyDescription(rs.getString("company_description"));
+                p.setKeywords(rs.getString("keywords"));
+
+                // các field mở rộng nếu có
+                p.setSalaryMin(rs.getBigDecimal("salary_min"));
+                p.setSalaryMax(rs.getBigDecimal("salary_max"));
+                p.setExperienceYears(rs.getInt("experience_years"));
+                p.setEducationLevel(rs.getString("education_level"));
+                p.setSkillsRequired(rs.getString("skills_required"));
+                p.setLanguagesRequired(rs.getString("languages_required"));
+                p.setWorkEnvironment(rs.getString("work_environment"));
+                p.setJobLevel(rs.getString("job_level"));
+                p.setContractType(rs.getString("contract_type"));
+                p.setProbationPeriod(rs.getString("probation_period"));
+                p.setApplicationDeadline(rs.getDate("application_deadline"));
+                p.setIsFeatured(rs.getBoolean("is_featured"));
+                p.setIsUrgent(rs.getBoolean("is_urgent"));
+                p.setSearchPriority(rs.getInt("search_priority"));
+
+                return p;
+            }
         }
     } catch (SQLException e) {
         Logger.getLogger(PostDAO.class.getName())
-              .log(Level.SEVERE, "Error fetching all posts", e);
+              .log(Level.SEVERE, "Error fetching post detail", e);
     }
-    return list;
+    return null;
 }
-
-   
-
 }
-
-
-

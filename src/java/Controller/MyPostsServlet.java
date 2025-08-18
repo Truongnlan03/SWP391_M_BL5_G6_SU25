@@ -1,7 +1,7 @@
 package Controller;
 
 import DAOs.PostDAO;
-import Models.Post;
+import Models.Posts;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -30,7 +30,7 @@ public class MyPostsServlet extends HttpServlet {
 
         // Lấy danh sách post của user này
         PostDAO postDAO = new PostDAO();
-        List<Post> myPosts = postDAO.getPostsByUserId(userId);
+        List<Posts> myPosts = postDAO.getPostsByUserId(userId);
 
         request.setAttribute("post", myPosts);
         request.getRequestDispatcher("viewpost.jsp").forward(request, response);

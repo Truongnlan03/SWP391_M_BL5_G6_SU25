@@ -1,7 +1,7 @@
 package Controller;
 
 import DAOs.PostDAO;
-import Models.Post;
+import Models.Posts;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -79,10 +79,10 @@ public class CreatePostServlet extends HttpServlet {
         }
 
         // Tạo đối tượng Post
-        Post post = new Post();
+        Posts post = new Posts();
         post.setUserId(userId);
-        post.setUserType("employer");
-        post.setPostType("job");
+        post.setUserType("recruiter");
+        post.setPostType("post");
         post.setTitle(title);
         post.setStatus("active");
         post.setCompanyName(companyName);
