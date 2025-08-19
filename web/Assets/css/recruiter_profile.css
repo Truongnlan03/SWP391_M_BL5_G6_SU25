@@ -1,0 +1,72 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Aug 19, 2025, 9:55:48 PM
+    Author     : DELL
+*/
+
+body {
+    background-color: #f8f9fa;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.card-body h5 {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.btn-primary {
+    background-color: #2c776b;
+    border: none;
+    border-radius: 30px;
+    padding: 8px 20px;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #2c776b;
+    transform: scale(1.05);
+}
+
+.list-group-item {
+    border: none;
+    padding: 12px 0;
+    font-size: 15px;
+}
+
+.list-group-item strong {
+    color: #2c3e50;
+}
+
+.row p.mb-0 {
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+hr {
+    margin: 10px 0;
+    border-top: 1px solid #dee2e6;
+}
+
+a {
+    color: #2c776b;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
