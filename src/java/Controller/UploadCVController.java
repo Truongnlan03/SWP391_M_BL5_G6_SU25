@@ -60,7 +60,7 @@ public class UploadCVController extends HttpServlet {
             response.sendRedirect("list-cv?success=upload");
         } else {
             request.setAttribute("error", "Không thể lưu link CV vào cơ sở dữ liệu");
-            request.getRequestDispatcher("listCv.jsp").forward(request, response);
+            request.getRequestDispatcher("listCV.jsp").forward(request, response);
         }
     }
 }

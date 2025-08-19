@@ -26,7 +26,7 @@ public class CreateCVController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("managerCV/createCV.jsp").forward(request, response);
+        request.getRequestDispatcher("createCV.jsp").forward(request, response);
     }
 
     @Override
@@ -87,7 +87,7 @@ public class CreateCVController extends HttpServlet {
             response.sendRedirect("list-cv?success=1");
         } else {
             request.setAttribute("error", "Không thể lưu CV, vui lòng thử lại!");
-            request.getRequestDispatcher("managerCV/createCV.jsp").forward(request, response);
+            request.getRequestDispatcher("createCV.jsp").forward(request, response);
         }
     }
 

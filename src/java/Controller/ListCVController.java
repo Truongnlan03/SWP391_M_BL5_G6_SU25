@@ -69,7 +69,7 @@ public class ListCVController extends HttpServlet {
         request.setAttribute("sort", sort);             // kiểu sắp xếp
 
         // Chuyển tiếp sang trang listCV.jsp để hiển thị
-        request.getRequestDispatcher("managerCV/listCV.jsp").forward(request, response);
+        request.getRequestDispatcher("listCV.jsp").forward(request, response);
     }
 
 }

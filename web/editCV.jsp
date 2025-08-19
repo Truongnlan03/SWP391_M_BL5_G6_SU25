@@ -10,65 +10,7 @@
 
         <!-- Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-        <style>
-            body {
-                background: #f4f6f8;
-            }
-            .cv-builder {
-                display: flex;
-                gap: 20px;
-                margin-top: 30px;
-            }
-            .cv-form {
-                flex: 1;
-                background: #fff;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            }
-            .cv-preview {
-                flex: 1;
-                background: #fff;
-                border: 1px solid #ddd;
-                padding: 20px;
-                font-family: Arial, sans-serif;
-            }
-            .cv-header {
-                display: flex;
-                gap: 20px;
-                border-bottom: 2px solid #ccc;
-                padding-bottom: 15px;
-            }
-            .cv-header img {
-                width: 120px;
-                height: 120px;
-                object-fit: cover;
-                border-radius: 5px;
-                background: #eee;
-            }
-            .cv-header h2 {
-                margin: 0;
-                font-size: 22px;
-                font-weight: bold;
-            }
-            .info-line {
-                font-size: 14px;
-                margin: 2px 0;
-            }
-            .section-title {
-                font-weight: bold;
-                font-size: 15px;
-                margin-top: 20px;
-                border-bottom: 1px solid #000;
-                padding-bottom: 3px;
-            }
-            .section-content {
-                font-size: 14px;
-                color: #555;
-                margin-top: 5px;
-            }
-        </style>
+        <link rel="stylesheet" href="/TopJobVN/Assets/css/editCV.css">
     </head>
     <body>
         <%@ include file="header.jsp" %>

@@ -49,7 +49,7 @@ public class EditCVServlet extends HttpServlet {
         }
 
         request.setAttribute("cv", cv);
-        request.getRequestDispatcher("managerCV/editCV.jsp").forward(request, response);
+        request.getRequestDispatcher("editCV.jsp").forward(request, response);
     }
 
     @Override
@@ -124,7 +124,7 @@ public class EditCVServlet extends HttpServlet {
         } else {
             request.setAttribute("error", "Không thể cập nhật CV, vui lòng thử lại!");
             request.setAttribute("cv", cv);
-            request.getRequestDispatcher("managerCV/editCV.jsp").forward(request, response);
+            request.getRequestDispatcher("editCV.jsp").forward(request, response);
         }
     }
 

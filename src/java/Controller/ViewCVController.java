@@ -32,6 +32,6 @@ public class ViewCVController extends HttpServlet {
         }
 
         request.setAttribute("cv", cv);
-        request.getRequestDispatcher("managerCV/viewCV.jsp").forward(request, response);
+        request.getRequestDispatcher("viewCV.jsp").forward(request, response);
     }
 }

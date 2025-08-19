@@ -10,98 +10,12 @@
 
         <!-- Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-        <style>
-            body {
-                background: #f4f6f8;
-            }
-            .cv-card {
-                border: 1px solid #ddd;
-                border-radius: 6px;
-                background: #fff;
-                padding: 15px;
-                height: 100%;
-                font-family: Arial, sans-serif;
-                transition: box-shadow 0.3s ease;
-            }
-            .cv-card:hover {
-                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            }
-            .cv-header {
-                display: flex;
-                gap: 15px;
-                border-bottom: 1px solid #ccc;
-                padding-bottom: 10px;
-            }
-            .cv-header img {
-                width: 100px;
-                height: 100px;
-                object-fit: cover;
-                background: #f0f0f0;
-            }
-            .cv-header h4 {
-                margin: 0;
-                font-size: 18px;
-                font-weight: bold;
-            }
-            .cv-header .position {
-                font-size: 14px;
-                color: #555;
-            }
-            .info-line {
-                font-size: 13px;
-                margin: 1px 0;
-            }
-            .section-title {
-                font-weight: bold;
-                font-size: 14px;
-                margin-top: 10px;
-                border-bottom: 1px solid #000;
-                padding-bottom: 2px;
-            }
-            .section-content {
-                font-size: 13px;
-                color: #555;
-                margin-top: 3px;
-                white-space: pre-line;
-            }
-            .cv-actions {
-                margin-top: 10px;
-                display: flex;
-                justify-content: flex-end;
-                gap: 5px;
-            }
-            .cv-card {
-                border: 1px solid #ddd;
-                border-radius: 6px;
-                background: #fff;
-                padding: 15px;
-                height: 450px; /* Chiều cao cố định cho khung CV */
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                font-family: Arial, sans-serif;
-                transition: box-shadow 0.3s ease;
-            }
-
-            .cv-card:hover {
-                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            }
-
-            .section-content {
-                font-size: 13px;
-                color: #555;
-                margin-top: 3px;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-
-        </style>
+        <link rel="stylesheet" href="/TopJobVN/Assets/css/viewCV.css">
     </head>
+
+
     <body>
         <%@ include file="header.jsp" %>
-
         <div class="container mt-4">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h2>CV đã tạo</h2>
