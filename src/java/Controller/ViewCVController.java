@@ -1,4 +1,4 @@
-package Controller.managerCv;
+package Controller;
 
 import DAOs.CVTemplateDAO;
 import Models.CVTemplate;

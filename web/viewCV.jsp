@@ -63,7 +63,7 @@
         </style>
     </head>
     <body>
-        <%@ include file="../header.jsp" %>
+        <%@ include file="header.jsp" %>
 
         <div class="container">
             <h2 class="text-center mt-4">Chi tiết CV</h2>
@@ -111,6 +111,6 @@
             </div>
         </div>
 
-        <%@ include file="../footer.jsp" %>
+        <%@ include file="footer.jsp" %>
     </body>
 </html>

@@ -1,4 +1,4 @@
-package Controller.managerCv;
+package Controller;
 
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;

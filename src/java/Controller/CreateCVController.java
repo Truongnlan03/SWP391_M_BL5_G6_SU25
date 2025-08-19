@@ -1,11 +1,11 @@
-package Controller.managerCv;
+package Controller;
 
 import DAOs.CVTemplateDAO;
 import Models.CVTemplate;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.sql.Date;
+import java.time.LocalDate;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
@@ -13,58 +13,26 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
+import java.sql.Date;
 
-@WebServlet(name = "EditCVServlet", urlPatterns = {"/edit-cv"})
-@MultipartConfig(
+@WebServlet(name = "CreateCVController", urlPatterns = {"/create-cv"})
+@MultipartConfig( // cấu hình cho upload file
         fileSizeThreshold = 1024 * 1024 * 1, // 1 MB
         maxFileSize = 1024 * 1024 * 10, // 10 MB
         maxRequestSize = 1024 * 1024 * 15 // 15 MB
 )
-public class EditCVServlet extends HttpServlet {
+public class CreateCVController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        String idParam = request.getParameter("id");
-        if (idParam == null) {
-            response.sendRedirect("list-cv");
-            return;
-        }
-
-        int id;
-        try {
-            id = Integer.parseInt(idParam);
-        } catch (NumberFormatException e) {
-            response.sendRedirect("list-cv");
-            return;
-        }
-
-        CVTemplateDAO dao = new CVTemplateDAO();
-        CVTemplate cv = dao.getCVById(id);
-
-        if (cv == null) {
-            response.sendRedirect("list-cv");
-            return;
-        }
-
-        request.setAttribute("cv", cv);
-        request.getRequestDispatcher("managerCV/editCV.jsp").forward(request, response);
+        request.getRequestDispatcher("managerCV/createCV.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         request.setCharacterEncoding("UTF-8");
-
-        String idParam = request.getParameter("id");
-        if (idParam == null) {
-            response.sendRedirect("list-cv");
-            return;
-        }
-
-        int id = Integer.parseInt(idParam);
 
         String uploadPath = getServletContext().getRealPath("/") + "uploads";
         File uploadDir = new File(uploadPath);
@@ -85,10 +53,7 @@ public class EditCVServlet extends HttpServlet {
         String workExperience = request.getParameter("work_experience");
         String certificates = request.getParameter("certificates");
 
-        // Giữ ảnh cũ nếu không upload mới
-        String oldImagePath = request.getParameter("old_image_path");
-        String imagePath = oldImagePath;
-
+        String imagePath = null;
         Part filePart = request.getPart("image_path");
         if (filePart != null && filePart.getSize() > 0) {
             String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
@@ -98,8 +63,6 @@ public class EditCVServlet extends HttpServlet {
         }
 
         CVTemplate cv = new CVTemplate();
-        cv.setId(id);
-        cv.setJobSeekerId((Integer) request.getSession().getAttribute("userId")); // 🔹 thêm dòng này
         cv.setFullName(fullName);
         cv.setJobPosition(jobPosition);
         if (birthDate != null && !birthDate.isEmpty()) {
@@ -115,16 +78,16 @@ public class EditCVServlet extends HttpServlet {
         cv.setWorkExperience(workExperience);
         cv.setCertificates(certificates);
         cv.setPdfFilePath(imagePath);
+        cv.setJobSeekerId((Integer) request.getSession().getAttribute("userId"));
 
         CVTemplateDAO dao = new CVTemplateDAO();
-        boolean updated = dao.updateCV(cv);
+        boolean inserted = dao.insertCV(cv);
 
-        if (updated) {
-            response.sendRedirect("list-cv?success=2");
+        if (inserted) {
+            response.sendRedirect("list-cv?success=1");
         } else {
-            request.setAttribute("error", "Không thể cập nhật CV, vui lòng thử lại!");
-            request.setAttribute("cv", cv);
-            request.getRequestDispatcher("managerCV/editCV.jsp").forward(request, response);
+            request.setAttribute("error", "Không thể lưu CV, vui lòng thử lại!");
+            request.getRequestDispatcher("managerCV/createCV.jsp").forward(request, response);
         }
     }
 

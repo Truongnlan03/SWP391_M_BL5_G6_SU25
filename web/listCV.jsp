@@ -100,7 +100,7 @@
         </style>
     </head>
     <body>
-        <%@ include file="../header.jsp" %>
+        <%@ include file="header.jsp" %>
 
         <div class="container mt-4">
             <div class="d-flex justify-content-between align-items-center mb-3">
@@ -221,6 +221,6 @@
             </c:choose>
         </div>
 
-        <%@ include file="../footer.jsp" %>
+        <%@ include file="footer.jsp" %>
     </body>
 </html>

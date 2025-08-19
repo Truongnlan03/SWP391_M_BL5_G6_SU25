@@ -1,3 +1,4 @@
+
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
@@ -70,7 +71,7 @@
         </style>
     </head>
     <body>
-        <%@ include file="../header.jsp" %>
+        <%@ include file="header.jsp" %>
 
         <div class="container">
             <h2 class="text-center mt-4">Chỉnh sửa CV</h2>
@@ -229,6 +230,6 @@
             });
         </script>
 
-        <%@ include file="../footer.jsp" %>
+        <%@ include file="footer.jsp" %>
     </body>
 </html>

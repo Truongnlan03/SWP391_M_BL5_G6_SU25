@@ -69,7 +69,7 @@
         </style>
     </head>
     <body>
-        <%@ include file="../header.jsp" %>
+        <%@ include file="header.jsp" %>
 
         <div class="container">
             <h2 class="text-center mt-4">Tạo CV mới</h2>
@@ -212,6 +212,6 @@
             });
         </script>
 
-        <%@ include file="../footer.jsp" %>
+        <%@ include file="footer.jsp" %>
     </body>
 </html>

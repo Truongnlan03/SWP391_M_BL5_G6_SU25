@@ -1,4 +1,8 @@
-package Controllers;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
+package Controller;
 
 import DAOs.PostDAO;
 import Models.Posts;
@@ -8,10 +12,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
 import java.sql.SQLException;
 
+
+/**
+ *
+ * @author DELL
+ */
 @WebServlet("/updatePost")
 public class UpdatePServlet extends HttpServlet {
 
@@ -24,14 +32,14 @@ public class UpdatePServlet extends HttpServlet {
         int id = Integer.parseInt(req.getParameter("id"));
 
         // Lấy post từ DB
-        Posts post = postDAO.getPostByPostId(id);
-
-        if (post != null) {
-            req.setAttribute("post", post);
-            req.getRequestDispatcher("update_post.jsp").forward(req, resp);
-        } else {
-            resp.sendRedirect("post.jsp?error=PostNotFound");
-        }
+//        Posts post = postDAO.getPostByPostId(id);
+//
+//        if (post != null) {
+//            req.setAttribute("post", post);
+//            req.getRequestDispatcher("update_post.jsp").forward(req, resp);
+//        } else {
+//            resp.sendRedirect("post.jsp?error=PostNotFound");
+//        }
     }
 
     @Override
