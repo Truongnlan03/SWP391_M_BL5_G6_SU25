@@ -28,4 +28,15 @@ public class JobSeekerDAO extends DBContext {
             return false;
         }
     }
+    
+     public boolean updateProfilePicture(int jobSeekerId, String profilePicturePath) {
+        String sql = "UPDATE Job_Seekers SET profile_picture = ?, updated_at = GETDATE() WHERE id = ?";
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setString(1, profilePicturePath);
+            ps.setInt(2, jobSeekerId);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            return false;
+        }
+    }
 }
