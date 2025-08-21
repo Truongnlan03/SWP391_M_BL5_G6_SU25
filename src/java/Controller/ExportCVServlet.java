@@ -10,7 +10,9 @@ import jakarta.servlet.http.*;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.net.URL;
+import java.net.URI;
+
+
 
 @WebServlet(name = "ExportCVServlet", urlPatterns = {"/export-cv"})
 public class ExportCVServlet extends HttpServlet {
@@ -100,7 +102,7 @@ public class ExportCVServlet extends HttpServlet {
             if (imagePath != null && !imagePath.isEmpty() && !imagePath.toLowerCase().endsWith(".svg")) {
                 Image avatar;
                 if (imagePath.startsWith("http")) {
-                    avatar = Image.getInstance(new URL(imagePath));
+                    avatar = Image.getInstance(URI.create(imagePath).toURL());
                 } else {
                     String realPath = getServletContext().getRealPath("/" + imagePath);
                     avatar = Image.getInstance(realPath);

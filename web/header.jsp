@@ -199,7 +199,6 @@
                                         </c:if>
 
                                     <c:if test="${sessionScope.role == 'admin'}">
-                                        <li><a class="dropdown-item" href="admin"> Hồ sơ cá nhân</a></li>
                                         <li><a class="dropdown-item" href="/TopJobVN/admin_dashboard.jsp"> Dashboard</a></li>
                                         </c:if>
                                     <li>

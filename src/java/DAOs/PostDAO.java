@@ -158,8 +158,8 @@ public class PostDAO extends DBContext {
                 p.setContent(rs.getString("content"));
                 p.setLocation(rs.getString("location"));
                 p.setSalary(rs.getString("salary"));
-                p.setSalaryMin(rs.getBigDecimal("salary_min"));
-                p.setSalaryMax(rs.getBigDecimal("salary_max"));
+                p.setSalaryMin(rs.getDouble("salary_min"));
+                p.setSalaryMax(rs.getDouble("salary_max"));
                 p.setDeadline(rs.getDate("deadline"));
                 p.setStatus(rs.getString("status"));
                 p.setExperienceYears(rs.getInt("experience_years"));
@@ -280,8 +280,8 @@ public Posts getPostById(int postId) {
                 p.setKeywords(rs.getString("keywords"));
 
                 // các field mở rộng nếu có
-                p.setSalaryMin(rs.getBigDecimal("salary_min"));
-                p.setSalaryMax(rs.getBigDecimal("salary_max"));
+                p.setSalaryMin(rs.getDouble("salary_min"));
+                p.setSalaryMax(rs.getDouble("salary_max"));
                 p.setExperienceYears(rs.getInt("experience_years"));
                 p.setEducationLevel(rs.getString("education_level"));
                 p.setSkillsRequired(rs.getString("skills_required"));

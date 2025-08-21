@@ -54,52 +54,14 @@ public class Posts {
     private Boolean isFeatured;
     private Boolean isUrgent;
     private Integer searchPriority;
-    private BigDecimal salaryMin;
-    private BigDecimal salaryMax;
+    private Double salaryMin;
+    private Double salaryMax;
     private String description;
 
     public Posts() {
     }
 
-    public Posts(
-            int id,
-            int userId,
-            String userType,
-            Integer parentId,
-            String postType,
-            String title,
-            String content,
-            String status,
-            int viewCount,
-            int likeCount,
-            int commentCount,
-            Timestamp createdAt,
-            Timestamp updatedAt,
-            Timestamp deletedAt,
-            String companyName,
-            String companyLogo,
-            String salary,
-            BigDecimal salaryMin,
-            BigDecimal salaryMax,
-            String location,
-            String jobType,
-            String experience,
-            Date deadline,
-            String workingTime,
-            String jobDescription,
-            String requirements,
-            String benefits,
-            String contactAddress,
-            String applicationMethod,
-            Integer quantity,
-            String rank,
-            String industry,
-            String contactPerson,
-            String companySize,
-            String companyWebsite,
-            String companyDescription,
-            String keywords
-    ) {
+    public Posts(int id, int userId, String userType, Integer parentId, String postType, String title, String content, String status, int viewCount, int likeCount, int commentCount, Timestamp createdAt, Timestamp updatedAt, Timestamp deletedAt, String companyName, String companyLogo, String salary, String location, String jobType, String experience, Date deadline, String workingTime, String jobDescription, String requirements, String benefits, String contactAddress, String applicationMethod, Integer quantity, String rank, String industry, String contactPerson, String companySize, String companyWebsite, String companyDescription, String keywords, Integer experienceYears, String educationLevel, String skillsRequired, String languagesRequired, String workEnvironment, String jobLevel, String contractType, String probationPeriod, Date applicationDeadline, Boolean isFeatured, Boolean isUrgent, Integer searchPriority, Double salaryMin, Double salaryMax, String description) {
         this.id = id;
         this.userId = userId;
         this.userType = userType;
@@ -117,8 +79,6 @@ public class Posts {
         this.companyName = companyName;
         this.companyLogo = companyLogo;
         this.salary = salary;
-        this.salaryMin = salaryMin;
-        this.salaryMax = salaryMax;
         this.location = location;
         this.jobType = jobType;
         this.experience = experience;
@@ -137,9 +97,23 @@ public class Posts {
         this.companyWebsite = companyWebsite;
         this.companyDescription = companyDescription;
         this.keywords = keywords;
+        this.experienceYears = experienceYears;
+        this.educationLevel = educationLevel;
+        this.skillsRequired = skillsRequired;
+        this.languagesRequired = languagesRequired;
+        this.workEnvironment = workEnvironment;
+        this.jobLevel = jobLevel;
+        this.contractType = contractType;
+        this.probationPeriod = probationPeriod;
+        this.applicationDeadline = applicationDeadline;
+        this.isFeatured = isFeatured;
+        this.isUrgent = isUrgent;
+        this.searchPriority = searchPriority;
+        this.salaryMin = salaryMin;
+        this.salaryMax = salaryMax;
+        this.description = description;
     }
 
-    // Getter & Setter
     public int getId() {
         return id;
     }
@@ -274,22 +248,6 @@ public class Posts {
 
     public void setSalary(String salary) {
         this.salary = salary;
-    }
-
-    public BigDecimal getSalaryMin() {
-        return salaryMin;
-    }
-
-    public void setSalaryMin(BigDecimal salaryMin) {
-        this.salaryMin = salaryMin;
-    }
-
-    public BigDecimal getSalaryMax() {
-        return salaryMax;
-    }
-
-    public void setSalaryMax(BigDecimal salaryMax) {
-        this.salaryMax = salaryMax;
     }
 
     public String getLocation() {
@@ -531,11 +489,32 @@ public class Posts {
     public void setSearchPriority(Integer searchPriority) {
         this.searchPriority = searchPriority;
     }
-    public String getDescription() {
-    return description;
-}
 
-public void setDescription(String description) {
-    this.description = description;
-}
+    public Double getSalaryMin() {
+        return salaryMin;
+    }
+
+    public void setSalaryMin(Double salaryMin) {
+        this.salaryMin = salaryMin;
+    }
+
+    public Double getSalaryMax() {
+        return salaryMax;
+    }
+
+    public void setSalaryMax(Double salaryMax) {
+        this.salaryMax = salaryMax;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    
+    
+    
 }

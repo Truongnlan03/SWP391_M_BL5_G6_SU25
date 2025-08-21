@@ -16,6 +16,10 @@
         <servlet-name>EditRecruiterProfileController</servlet-name>
         <servlet-class>Controller.EditRecruiterProfileController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminController</servlet-name>
+        <servlet-class>Controller.AdminController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>EditRecruiterProfileController</servlet-name>
         <url-pattern>/edit-recruiter-profile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminController</servlet-name>
+        <url-pattern>/AdminController</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>home</welcome-file>
