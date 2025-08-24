@@ -7,6 +7,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -108,9 +109,11 @@
                         <div class="detail-label">Vị trí công việc mong muốn:</div>
                         <div class="detail-value">${JobSeeker.desiredJobTitle}</div>
                     </div>
-                    <div class="detail-row">
+                    <div class="detail-row"> 
                         <div class="detail-label">Mức lương mong muốn:</div>
-                        <div class="detail-value">$${JobSeeker.desiredSalary}</div>
+                        <div class="detail-value">
+                            <fmt:formatNumber value="${JobSeeker.desiredSalary}" type="number" pattern="#,###"/> VNĐ
+                        </div>
                     </div>
                     <div class="detail-row">
                         <div class="detail-label">Ngành nghề mong muốn:</div>

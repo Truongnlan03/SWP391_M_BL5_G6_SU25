@@ -86,9 +86,9 @@
 
                         <div class="search-filter-row">
                             <div class="search-box">
-                                <input type="text" name="fullName" placeholder="Tìm kiếm..." 
+                                <input type="text" name="fullName" placeholder="Tên..." 
                                        value="${param.fullName}">
-                                <i class="fas fa-search"></i>
+<!--                                <i class="fas fa-search"></i>-->
                             </div>
 
                             <input type="text" name="email" class="form-control" 
@@ -97,7 +97,7 @@
                             <input type="text" name="phone" class="form-control" 
                                    placeholder="Điện thoại" value="${param.phone}" style="width: 150px;">
 
-                            <select name="gender" class="form-control" style="width: 120px;">
+<!--                            <select name="gender" class="form-control" style="width: 120px;">
                                 <option value="">Giới tính</option>
                                 <option value="Male" ${param.gender == 'Male' ? 'selected' : ''}>Nam</option>
                                 <option value="Female" ${param.gender == 'Female' ? 'selected' : ''}>Nữ</option>
@@ -108,7 +108,7 @@
                                 <option value="">Trạng thái</option>
                                 <option value="true" ${param.isActive == 'true' ? 'selected' : ''}>Hoạt động</option>
                                 <option value="false" ${param.isActive == 'false' ? 'selected' : ''}>Không hoạt động</option>
-                            </select>
+                            </select>-->
 
                             <button type="submit" name="submit" value="Search" class="btn btn-primary">
                                 <i class="fas fa-search"></i>
