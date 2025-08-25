@@ -1,0 +1,133 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Aug 25, 2025, 3:51:33 AM
+    Author     : DELL
+*/
+
+body {
+    background-color: #f8f9fa;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    color: #333;
+}
+
+.container {
+    max-width: 1100px;
+}
+
+.breadcrumb {
+    background-color: transparent;
+    font-size: 0.95rem;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #198754;
+    font-weight: 500;
+}
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.form-container .card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.card-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #198754;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 0.5rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #495057;
+    border-left: 4px solid #198754;
+    padding-left: 0.5rem;
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+}
+.required-field::after {
+    content: " *";
+    color: red;
+}
+
+.form-control, .form-select {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.2);
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+}
+
+#logoPreview img {
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    padding: 4px;
+    background: #fff;
+}
+
+.alert {
+    border-radius: 8px;
+}
+
+.btn {
+    padding: 0.55rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+.btn i {
+    margin-right: 6px;
+}
+
+.btn-primary {
+    background-color: #198754;
+    border: none;
+}
+.btn-primary:hover {
+    background-color: #157347;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+}
+.btn-secondary:hover {
+    background-color: #5c636a;
+}
+
+@media (max-width: 576px) {
+    .card-body {
+        padding: 1.2rem;
+    }
+    .card-title {
+        font-size: 1.3rem;
+    }
+    h4 {
+        font-size: 1.1rem;
+    }
+}

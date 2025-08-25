@@ -55,7 +55,7 @@
             <div class="col-lg-6 mb-3 mb-lg-0">
                 <div class="logo-container">
                     <div class="logo-icon">
-                        <img src="Assets/image/logo/logofooter.png" alt="TopJobVN LogoFooter" height="40">
+                        <img src="/TopJobVN/Assets/image/logo/logofooter.png" alt="TopJobVN LogoFooter" height="40">
                     </div>
                     <div class="logo-text">
                         <h3 class="mb-0">TopJobVN</h3>

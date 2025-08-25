@@ -9,17 +9,14 @@
 <header class="header-area">
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
         <div class="container">
-            <!-- Logo -->
             <a class="navbar-brand" href="home">
-                <img src="Assets/image/logo/logo.png" alt="TopJobVN Logo" height="40">
+                <img src="/TopJobVN/Assets/image/logo/logo.png" alt="TopJobVN Logo" height="40">
             </a>
 
-            <!-- Mobile Toggle -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Main Navigation -->
             <div class="collapse navbar-collapse" id="navbarMain">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -34,7 +31,6 @@
                         </a>
                     </li>
 
-                    <!-- Applications Menu for logged in users -->
                     <c:if
                         test="${not empty sessionScope.user and (sessionScope.role == 'job-seeker' or sessionScope.role == 'recruiter')}">
                         <li class="nav-item">
@@ -43,7 +39,6 @@
                             </a>
                         </li>
                     </c:if>
-                    <!-- CV Management for job seekers -->
                     <c:if test="${not empty sessionScope.user and sessionScope.role == 'job-seeker'}">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="cvDropdown" role="button"
@@ -102,7 +97,6 @@
                     </c:if>
                 </ul>
 
-                <!-- User Menu -->
                 <div class="d-flex align-items-center">
                     <c:choose>
                         <c:when test="${not empty sessionScope.user}">
@@ -121,7 +115,6 @@
                                     <ul class="dropdown-menu dropdown-menu-end notifications"
                                         aria-labelledby="notiDropdown">
 
-                                        <!-- Notification filter tabs -->
                                         <div class="d-flex justify-content-center px-3 pt-2">
                                             <button type="button"
                                                     class="btn btn-sm btn-outline-primary me-1 tab-btn active"
@@ -136,7 +129,6 @@
                                         </div>
                                         <hr class="my-2" />
 
-                                        <!-- All notifications -->
                                         <div class="tab-content all">
                                             <c:forEach var="noti" items="${sessionScope.notice}">
                                                 <a href="/TopJopVN/notification?service=detail&type=all&id=${noti.id}"
@@ -150,7 +142,6 @@
                                             </c:forEach>
                                         </div>
 
-                                        <!-- Unread notifications only -->
                                         <div class="tab-content unread d-none">
                                             <c:forEach var="noti" items="${sessionScope.unread}">
                                                 <c:if test="${!noti.is_read}">
@@ -226,8 +217,6 @@
         </div>
     </nav>
 </header>
-
-<!-- Bootstrap and Font Awesome -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
