@@ -12,7 +12,6 @@ import java.sql.Date;
  * @author DELL
  */
 public class CVTemplate {
-
     private int id;
     private int jobSeekerId;
     private String fullName;
@@ -25,18 +24,11 @@ public class CVTemplate {
     private String pdfFilePath;
     private Timestamp createdAt;
     private Timestamp updatedAt;
-    private Date birthDate;
-    private String gender;
-    private String website;
-    private String careerGoal;
-    private String education;
-    private String cv_link;
 
-    public CVTemplate() {
-    }
+    public CVTemplate() {}
 
     public CVTemplate(int id, int jobSeekerId, String fullName, String jobPosition, String phone, String email,
-            String address, String certificates, String workExperience, String pdfFilePath, Timestamp createdAt, Timestamp updatedAt) {
+                      String address, String certificates, String workExperience, String pdfFilePath, Timestamp createdAt, Timestamp updatedAt) {
         this.id = id;
         this.jobSeekerId = jobSeekerId;
         this.fullName = fullName;
@@ -51,168 +43,68 @@ public class CVTemplate {
         this.updatedAt = updatedAt;
     }
 
-    public CVTemplate(int id, int jobSeekerId, String fullName, String jobPosition, String phone, String email, String address, String certificates, String workExperience, String pdfFilePath, Timestamp createdAt, Timestamp updatedAt, Date birthDate, String gender, String website, String careerGoal, String education, String cv_link) {
-        this.id = id;
-        this.jobSeekerId = jobSeekerId;
-        this.fullName = fullName;
-        this.jobPosition = jobPosition;
-        this.phone = phone;
-        this.email = email;
-        this.address = address;
-        this.certificates = certificates;
-        this.workExperience = workExperience;
-        this.pdfFilePath = pdfFilePath;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-        this.birthDate = birthDate;
-        this.gender = gender;
-        this.website = website;
-        this.careerGoal = careerGoal;
-        this.education = education;
-        this.cv_link = cv_link;
-    }
-
-    public String getCv_link() {
-        return cv_link;
-    }
-
-    public void setCv_link(String cv_link) {
-        this.cv_link = cv_link;
-    }
-
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getWebsite() {
-        return website;
-    }
-
-    public void setWebsite(String website) {
-        this.website = website;
-    }
-
-    public String getCareerGoal() {
-        return careerGoal;
-    }
-
-    public void setCareerGoal(String careerGoal) {
-        this.careerGoal = careerGoal;
-    }
+    // Getters and Setters
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
+    public int getJobSeekerId() { return jobSeekerId; }
+    public void setJobSeekerId(int jobSeekerId) { this.jobSeekerId = jobSeekerId; }
+    public String getFullName() { return fullName; }
+    public void setFullName(String fullName) { this.fullName = fullName; }
+    public String getJobPosition() { return jobPosition; }
+    public void setJobPosition(String jobPosition) { this.jobPosition = jobPosition; }
+    public String getPhone() { return phone; }
+    public void setPhone(String phone) { this.phone = phone; }
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+    public String getAddress() { return address; }
+    public void setAddress(String address) { this.address = address; }
+    public String getCertificates() { return certificates; }
+    public void setCertificates(String certificates) { this.certificates = certificates; }
+    public String getWorkExperience() { return workExperience; }
+    public void setWorkExperience(String workExperience) { this.workExperience = workExperience; }
+    public String getPdfFilePath() { return pdfFilePath; }
+    public void setPdfFilePath(String pdfFilePath) { this.pdfFilePath = pdfFilePath; }
+    public Timestamp getCreatedAt() { return createdAt; }
+    public void setCreatedAt(Timestamp createdAt) { this.createdAt = createdAt; }
+    public Timestamp getUpdatedAt() { return updatedAt; }
+    public void setUpdatedAt(Timestamp updatedAt) { this.updatedAt = updatedAt; }
 
     public String getEducation() {
-        return education;
+        return parseCertificateValue("Học vấn");
     }
 
-    public void setEducation(String education) {
-        this.education = education;
+    public int getExperienceYears() {
+        String value = parseCertificateValue("Kinh nghiệm");
+        if (value == null || value.trim().isEmpty()) {
+            return -1; // indicates not set
+        }
+        // Remove non-digit characters (e.g., " năm") then parse
+        try {
+            String digits = value.replaceAll("[^0-9]", "");
+            return digits.isEmpty() ? -1 : Integer.parseInt(digits);
+        } catch (NumberFormatException ex) {
+            return -1;
+        }
     }
 
-    public int getId() {
-        return id;
+    public String getSkills() {
+        return parseCertificateValue("Kỹ năng");
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getJobSeekerId() {
-        return jobSeekerId;
-    }
-
-    public void setJobSeekerId(int jobSeekerId) {
-        this.jobSeekerId = jobSeekerId;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public String getJobPosition() {
-        return jobPosition;
-    }
-
-    public void setJobPosition(String jobPosition) {
-        this.jobPosition = jobPosition;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getCertificates() {
-        return certificates;
-    }
-
-    public void setCertificates(String certificates) {
-        this.certificates = certificates;
-    }
-
-    public String getWorkExperience() {
-        return workExperience;
-    }
-
-    public void setWorkExperience(String workExperience) {
-        this.workExperience = workExperience;
-    }
-
-    public String getPdfFilePath() {
-        return pdfFilePath;
-    }
-
-    public void setPdfFilePath(String pdfFilePath) {
-        this.pdfFilePath = pdfFilePath;
-    }
-
-    public Timestamp getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Timestamp createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Timestamp getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Timestamp updatedAt) {
-        this.updatedAt = updatedAt;
+    /**
+     * Helper method to extract a specific field value from the composite certificates string.
+     * The expected pattern of each segment is: "<label>: <value>" and segments are separated by " | ".
+     */
+    private String parseCertificateValue(String label) {
+        if (certificates == null) {
+            return null;
+        }
+        String[] parts = certificates.split("\\s*\\|\\s*");
+        for (String part : parts) {
+            if (part.startsWith(label + ":")) {
+                return part.substring((label + ":").length()).trim();
+            }
+        }
+        return null;
     }
 }

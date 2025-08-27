@@ -62,10 +62,8 @@
     </head>
     <body>
         <div class="dashboard-container">
-            <!-- Include Sidebar -->
             <jsp:include page="sidebar.jsp" />
 
-            <!-- Main Content -->
             <div class="main-content">
                 <!-- Page Header -->
                 <div class="page-header">
@@ -78,7 +76,6 @@
                     </div>
                 </div>
 
-                <!-- Search and Filter -->
                 <div class="search-filter-section">
                     <form action="AdminController" method="get">
                         <input type="hidden" name="target" value="JobSeeker">

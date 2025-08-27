@@ -21,12 +21,9 @@
     </head>
     <body>
         <div class="dashboard-container">
-            <!-- Include Sidebar -->
             <jsp:include page="sidebar.jsp" />
 
-            <!-- Main Content -->
             <div class="main-content">
-                <!-- Page Header -->
                 <div class="page-header">
                     <h1>Thông tin chi tiết người tìm việc</h1>
                     <div class="header-actions">
@@ -42,7 +39,6 @@
                     </div>
                 </div>
 
-                <!-- Profile Header -->
                 <div class="section-card">
                     <div class="profile-header">
                         <img src="${JobSeeker.profilePicture != null ? JobSeeker.profilePicture : 'https://via.placeholder.com/150'}" 
@@ -66,7 +62,6 @@
                     </div>
                 </div>
 
-                <!-- Basic Information -->
                 <div class="section-card">
                     <h3 class="section-title">Thông tin cơ bản</h3>
                     <div class="detail-row">
@@ -94,7 +89,6 @@
                     </div>
                 </div>
 
-                <!-- Professional Information -->
                 <div class="section-card">
                     <h3 class="section-title">Thông tin chuyên môn</h3>
                     <div class="detail-row">
@@ -133,7 +127,6 @@
                     </div>
                 </div>
 
-                <!-- Skills -->
                 <div class="section-card">
                     <h3 class="section-title">Kỹ năng</h3>
                     <div class="skills-list">
@@ -143,13 +136,11 @@
                     </div>
                 </div>
 
-                <!-- Profile Summary -->
                 <div class="section-card">
                     <h3 class="section-title">Tóm tắt hồ sơ</h3>
                     <p>${JobSeeker.profileSummary}</p>
                 </div>
 
-                <!-- Additional Information -->
                 <div class="section-card">
                     <h3 class="section-title">Thông tin bổ sung</h3>
                     <div class="detail-row">

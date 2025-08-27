@@ -20,10 +20,10 @@ import java.util.Vector;
 public class JobSeekerDAO extends DBContext {
 
     private String getAll = "SELECT *\n"
-            + "  FROM [project_SWP391].[dbo].[Job_Seekers]";
+            + "  FROM [projectg6_SWP391].[dbo].[Job_Seekers]";
 
     public boolean updateContactInfo(JobSeeker jobSeeker) {
-        String sql = "UPDATE [project_SWP391].[dbo].[Job_Seekers] SET full_name = ?, email = ?, phone = ?, address = ?, updated_at = GETDATE() WHERE id = ?";
+        String sql = "UPDATE [projectg6_SWP391].[dbo].[Job_Seekers] SET full_name = ?, email = ?, phone = ?, address = ?, updated_at = GETDATE() WHERE id = ?";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setString(1, jobSeeker.getFullName());
             ps.setString(2, jobSeeker.getEmail());
@@ -49,7 +49,7 @@ public class JobSeekerDAO extends DBContext {
 
     public Vector<JobSeeker> searchJobSeekers(JobSeeker criteria) {
         Vector<JobSeeker> result = new Vector<>();
-        StringBuilder sql = new StringBuilder("SELECT * FROM [project_SWP391].[dbo].[Job_Seekers] WHERE 1=1");
+        StringBuilder sql = new StringBuilder("SELECT * FROM [projectg6_SWP391].[dbo].[Job_Seekers] WHERE 1=1");
         List<Object> params = new ArrayList<>();
 
         if (criteria.getId() != 0) {
@@ -211,7 +211,7 @@ public class JobSeekerDAO extends DBContext {
 
     public JobSeeker getSpeccificJobSeeker(int id) {
         String sql = "SELECT *\n"
-                + "  FROM [project_SWP391].[dbo].[Job_Seekers]"
+                + "  FROM [projectg6_SWP391].[dbo].[Job_Seekers]"
                 + " WHERE id = ?";
 
         JobSeeker p = new JobSeeker();

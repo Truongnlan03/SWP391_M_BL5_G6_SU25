@@ -1,78 +1,205 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+    
+ <servlet>
+        <servlet-name>JobDetailController</servlet-name>
+        <servlet-class>Controller.JobDetailController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>JobListingController</servlet-name>
+        <servlet-class>Controller.JobListingController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutController</servlet-name>
+        <servlet-class>Controller.LogoutController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResetPasswordController</servlet-name>
+        <servlet-class>Controller.ResetPasswordController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CVListController</servlet-name>
+        <servlet-class>Controller.CVListController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CVUpdateController</servlet-name>
+        <servlet-class>Controller.CVUpdateController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CVCreateController</servlet-name>
+        <servlet-class>Controller.CVCreateController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SaveJobController</servlet-name>
+        <servlet-class>Controller.SaveJobController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SavedJobsController</servlet-name>
+        <servlet-class>Controller.SavedJobsController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TestController</servlet-name>
+        <servlet-class>Controller.TestController</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>HomeController</servlet-name>
         <servlet-class>Controller.HomeController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AvatarUploadController</servlet-name>
-        <servlet-class>Controller.AvatarUploadController</servlet-class>
+        <servlet-name>NotificationController</servlet-name>
+        <servlet-class>Controller.NotificationController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RecruiterProfileController</servlet-name>
-        <servlet-class>Controller.RecruiterProfileController</servlet-class>
+        <servlet-name>UploadServlet</servlet-name>
+        <servlet-class>Controller.UploadServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>EditRecruiterProfileController</servlet-name>
-        <servlet-class>Controller.EditRecruiterProfileController</servlet-class>
+        <servlet-name>ajaxServlet</servlet-name>
+        <servlet-class>com.vnpay.common.ajaxServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AdminController</servlet-name>
-        <servlet-class>Controller.AdminController</servlet-class>
+        <servlet-name>VnpayReturn</servlet-name>
+        <servlet-class>com.vnpay.common.VnpayReturn</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddProfileSectionController</servlet-name>
+        <servlet-class>Controller.AddProfileSectionController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CVPreviewController</servlet-name>
+        <servlet-class>Controller.CVPreviewController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>HomeController</servlet-name>
-        <url-pattern>/home</url-pattern>
+        <servlet-name>ajaxServlet</servlet-name>
+        <url-pattern>/payment</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>LoginController</servlet-name>
-        <servlet-class>Controller.LoginController</servlet-class>
-    </servlet>
     <servlet-mapping>
-        <servlet-name>LoginController</servlet-name>
-        <url-pattern>/login</url-pattern>
+        <servlet-name>VnpayReturn</servlet-name>
+        <url-pattern>/vnpayReturn</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>LogoutController</servlet-name>
-        <servlet-class>Controller.LogoutController</servlet-class>
-    </servlet>
+    <servlet-mapping>
+        <servlet-name>JobDetailController</servlet-name>
+        <url-pattern>/job-detail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>JobListingController</servlet-name>
+        <url-pattern>/job-listing</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TestController</servlet-name>
+        <url-pattern>/test</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LogoutController</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>ProfileJobSeekerController</servlet-name>
-        <servlet-class>Controller.ProfileJobSeekerController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ProfileJobSeekerController</servlet-name>
-        <url-pattern>/profilejobseeker</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>ResetPasswordController</servlet-name>
-        <servlet-class>Controller.ResetPasswordController</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>ResetPasswordController</servlet-name>
         <url-pattern>/reset-password</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AvatarUploadController</servlet-name>
-        <url-pattern>/avatar-upload</url-pattern>
+        <servlet-name>CVListController</servlet-name>
+        <url-pattern>/list_cv</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>RecruiterProfileController</servlet-name>
-        <url-pattern>/recruiter-profile</url-pattern>
+        <servlet-name>CVUpdateController</servlet-name>
+        <url-pattern>/update_cv</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>EditRecruiterProfileController</servlet-name>
-        <url-pattern>/edit-recruiter-profile</url-pattern>
+        <servlet-name>CVCreateController</servlet-name>
+        <url-pattern>/create_cv</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeController</servlet-name>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NotificationController</servlet-name>
+        <url-pattern>/notification</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UploadServlet</servlet-name>
+        <url-pattern>/upload</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddProfileSectionController</servlet-name>
+        <url-pattern>/experience-add</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddProfileSectionController</servlet-name>
+        <url-pattern>/education-add</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddProfileSectionController</servlet-name>
+        <url-pattern>/certificate-add</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddProfileSectionController</servlet-name>
+        <url-pattern>/award-add</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddProfileSectionController</servlet-name>
+        <url-pattern>/experience-edit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddProfileSectionController</servlet-name>
+        <url-pattern>/certificate-edit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddProfileSectionController</servlet-name>
+        <url-pattern>/education-edit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddProfileSectionController</servlet-name>
+        <url-pattern>/award-edit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CVPreviewController</servlet-name>
+        <url-pattern>/cv-preview</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AdminController</servlet-name>
+        <servlet-class>Controller.AdminController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdminController</servlet-name>
         <url-pattern>/AdminController</url-pattern>
     </servlet-mapping>
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
     <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
         <welcome-file>home</welcome-file>
     </welcome-file-list>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error.jsp</location>
+    </error-page>
+     <servlet>
+        <servlet-name>ApplicationController</servlet-name>
+        <servlet-class>Controller.ApplicationController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ApplicationController</servlet-name>
+        <url-pattern>/applications</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>BlogController</servlet-name>
+        <servlet-class>Controller.BlogController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BlogController</servlet-name>
+        <url-pattern>/BlogController</url-pattern>
+    </servlet-mapping>
+
+
+    <listener>
+        <listener-class>listeners.ApplicationStartupListener</listener-class>
+    </listener>
+
 </web-app>

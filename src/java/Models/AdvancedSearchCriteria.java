@@ -191,4 +191,21 @@ public class AdvancedSearchCriteria {
     public void setSearchName(String searchName) {
         this.searchName = searchName;
     }
+    
+     // Helper methods
+    public boolean hasFilters() {
+        return (keyword != null && !keyword.trim().isEmpty()) ||
+               (location != null && !location.trim().isEmpty()) ||
+               (industry != null && !industry.trim().isEmpty()) ||
+               (jobType != null && !jobType.trim().isEmpty()) ||
+               (experienceLevel != null && !experienceLevel.trim().isEmpty()) ||
+               (minSalary != null && minSalary.compareTo(BigDecimal.ZERO) > 0) ||
+               (maxSalary != null && maxSalary.compareTo(BigDecimal.ZERO) > 0) ||
+               (companySize != null && !companySize.trim().isEmpty()) ||
+               (workType != null && !workType.trim().isEmpty()) ||
+               (education != null && !education.trim().isEmpty()) ||
+               (skills != null && !skills.trim().isEmpty()) ||
+               (benefits != null && !benefits.trim().isEmpty()) ||
+               (language != null && !language.trim().isEmpty());
+    }
 }

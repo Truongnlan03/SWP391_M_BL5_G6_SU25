@@ -28,6 +28,12 @@ public class SavedJob {
         this.postId = postId;
         this.savedAt = savedAt;
     }
+    
+    public SavedJob(Integer jobSeekerId, int postId) {
+        this.jobSeekerId = jobSeekerId;
+        this.postId = postId;
+        this.savedAt = new Timestamp(System.currentTimeMillis());
+    }
 
     public int getId() {
         return id;

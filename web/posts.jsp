@@ -9,7 +9,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
-
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Danh sách tin tuyển dụng</title>
@@ -17,7 +16,6 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
         <link href="/TopJobVN/Assets/css/posts.css" rel="stylesheet" />
     </head>
-
     <body>
         <jsp:include page="header.jsp"/>
         <div class="container mt-4">
@@ -61,7 +59,6 @@
                 </div>
             </c:if>
 
-            <!-- Search Form -->
             <div class="search-bar-section">
                 <div class="card mb-4">
                     <div class="card-body">

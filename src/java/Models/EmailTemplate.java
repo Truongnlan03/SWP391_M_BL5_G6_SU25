@@ -97,14 +97,13 @@ public class EmailTemplate {
         this.variables = variables;
     }
 
-    public boolean isIsActive() {
+    public boolean isActive() {
         return isActive;
     }
 
-    public void setIsActive(boolean isActive) {
-        this.isActive = isActive;
+    public void setActive(boolean active) {
+        isActive = active;
     }
-
     public int getCreatedBy() {
         return createdBy;
     }

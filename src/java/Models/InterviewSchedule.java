@@ -27,6 +27,11 @@ public class InterviewSchedule {
     private Timestamp createdAt;
     private int createdBy;
 
+    // Additional fields for convenience
+    private String candidateName;
+    private String jobTitle;
+    private String companyName;
+
     public InterviewSchedule() {
     }
 
@@ -157,6 +162,45 @@ public class InterviewSchedule {
 
     public void setCreatedBy(int createdBy) {
         this.createdBy = createdBy;
+    }
+    
+     public String getCandidateName() {
+        return candidateName;
+    }
+
+    public void setCandidateName(String candidateName) {
+        this.candidateName = candidateName;
+    }
+
+    public String getJobTitle() {
+        return jobTitle;
+    }
+
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    @Override
+    public String toString() {
+        return "InterviewSchedule{" +
+                "id=" + id +
+                ", applicationId=" + applicationId +
+                ", interviewType='" + interviewType + '\'' +
+                ", scheduledDate=" + scheduledDate +
+                ", location='" + location + '\'' +
+                ", interviewerName='" + interviewerName + '\'' +
+                ", candidateEmail='" + candidateEmail + '\'' +
+                ", status='" + status + '\'' +
+                ", reminderSent=" + reminderSent +
+                '}';
     }
 
 }

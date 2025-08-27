@@ -39,7 +39,7 @@
                             <input type="hidden" name="postType" value="job">
                             <input type="hidden" name="status" value="active">
                             <input type="hidden" name="parentId" value="">
-                            
+
                             <div class="mb-4">
                                 <h4>Thông tin cơ bản</h4>
                                 <div class="row">
@@ -222,6 +222,7 @@
                 </div>
             </div>
         </div>
+        <jsp:include page="footer.jsp" />
     </body>
     <script>
         function previewLogo(event) {

@@ -15,7 +15,6 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="manifest" href="site.webmanifest">
-        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
         <link rel="stylesheet" href="/TopJobVN/Assets/css/recruiter_profile.css">
     </head>
     <body>
@@ -23,7 +22,6 @@
         <main>
             <div class="container mt-5 mb-5">
                 <div class="row">
-                    <!-- Profile Card -->
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-body text-center">
@@ -38,7 +36,6 @@
                             </div>
                         </div>
 
-                        <!-- Company Info -->
                         <div class="card mt-4">
                             <div class="card-body">
                                 <h5 class="card-title">Thông tin công ty</h5>
@@ -53,7 +50,6 @@
                         </div>
                     </div>
 
-                    <!-- Personal Info -->
                     <div class="col-lg-8">
                         <div class="card">
                             <div class="card-body">

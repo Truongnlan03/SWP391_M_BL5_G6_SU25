@@ -14,7 +14,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Hồ sơ cá nhân | TopJobVN</title>
-        <!-- CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         <link rel="stylesheet" href="Assets/css/profile_jobseeker.css">
@@ -22,7 +21,6 @@
     <body>
         <%@ include file="header.jsp" %>
         <div class="container py-5">
-            <!-- Success/Error Messages -->
             <c:if test="${not empty sessionScope.successMessage}">
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <i class="fas fa-check-circle me-2"></i>
@@ -40,7 +38,6 @@
                 <c:remove var="errorMessage" scope="session" />
             </c:if>
             <div class="row">
-                <!-- Profile Information -->
                 <div class="col-lg-4">
                     <div class="profile-section">
                         <div class="section-body text-center">
@@ -56,7 +53,6 @@
                         </div>
                     </div>
 
-                    <!-- Contact Information -->
                     <div class="profile-section">
                         <div class="section-header d-flex justify-content-between align-items-center">
                             <h5 class="mb-0"><i class="fas fa-address-card me-2"></i>Thông tin liên hệ</h5>
@@ -92,7 +88,6 @@
         </div>
     </body>
 </html>
-<!-- Edit Contact Info Modal -->
 <div class="modal fade" id="editContactModal" tabindex="-1" aria-labelledby="editContactModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

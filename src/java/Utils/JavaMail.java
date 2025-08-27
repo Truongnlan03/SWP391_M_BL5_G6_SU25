@@ -22,7 +22,7 @@ import javax.mail.internet.MimeMessage;
  * @author DELL
  */
 public final class JavaMail {
-
+    
     private static final Logger LOGGER = Logger.getLogger(JavaMail.class.getName());
 
     private static Session getMailSession() {
@@ -57,18 +57,69 @@ public final class JavaMail {
                     + "         <h2 style='color: #333;'>Yêu cầu đặt lại mật khẩu</h2>"
                     + "         <p>Xin chào,</p>"
                     + "         <p>Chúng tôi đã nhận được yêu cầu đặt lại mật khẩu cho tài khoản của bạn. Vui lòng nhấp vào nút bên dưới để đặt lại mật khẩu:</p>"
-                    + "         <a href='" + resetLink + "' style='display: inline-block; padding: 10px 20px; background-color: #2c776b; color: #fff; text-decoration: none; border-radius: 3px;'>Đặt lại mật khẩu</a>"
+                    + "         <a href='" + resetLink + "' style='display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 3px;'>Đặt lại mật khẩu</a>"
                     + "         <p>Nếu bạn không yêu cầu đặt lại mật khẩu, vui lòng bỏ qua email này.</p>"
                     + "         <p style='margin-top: 30px;'>Trân trọng,<br>Đội ngũ TopJobVN</p>"
                     + "     </div>"
                     + " </body>"
                     + "</html>";
-
+            
             message.setContent(htmlContent, "text/html; charset=UTF-8");
             Transport.send(message);
             return true;
         } catch (MessagingException e) {
             LOGGER.log(Level.SEVERE, "Failed to send password reset email to " + to, e);
+            return false;
+        }
+    }
+
+    public static boolean sendNotification(String to) {
+        try {
+            MimeMessage message = new MimeMessage(getMailSession());
+            message.setFrom(new InternetAddress(Constants.EMAIL_FROM));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
+            message.setSubject("[Notification - TopJobVN] TÀI KHOẢN ĐƯỢC PHÊ DUYỆT", "UTF-8");
+            
+            String htmlContent = "<html>"
+                    + " <body style='font-family: Arial, sans-serif;'>"
+                    + "     <div style='max-width: 600px; margin: 0 auto; padding: 20px;'>"
+                    + "         <h2 style='color: #2e7d32; margin-bottom: 20px;'>Xác thực tài khoản</h2>"
+                    + "         <p>Xin chào,</p>"
+                    + "         <p>Tài khoản của bạn đã được phê duyệt</p>"
+                    + "         <p><strong>Từ giờ bạn có thể:</strong></p>"
+                    + "         <ul>"
+                    + "             <li>Đăng bài tuyển dụng.</li>"
+                    + "             <li>Đăng kí các gói đăng tin của chúng tôi.</li>"
+                    + "         </ul>"
+                    + "         <p style='margin-top: 30px;'>Trân trọng,<br>Đội ngũ TopJobVN</p>"
+                    + "     </div>"
+                    + " </body>"
+                    + "</html>";
+            
+            message.setContent(htmlContent, "text/html; charset=UTF-8");
+            Transport.send(message);
+            return true;
+        } catch (MessagingException e) {
+            LOGGER.log(Level.SEVERE, "Failed to send notification email to " + to, e);
+            return false;
+        }
+    }
+
+    /**
+     * Gửi email với subject và content tùy chỉnh
+     */
+    public static boolean sendEmail(String to, String subject, String htmlContent) {
+        try {
+            MimeMessage message = new MimeMessage(getMailSession());
+            message.setFrom(new InternetAddress(Constants.EMAIL_FROM));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
+            message.setSubject(subject, "UTF-8");
+            
+            message.setContent(htmlContent, "text/html; charset=UTF-8");
+            Transport.send(message);
+            return true;
+        } catch (MessagingException e) {
+            LOGGER.log(Level.SEVERE, "Failed to send email to " + to, e);
             return false;
         }
     }

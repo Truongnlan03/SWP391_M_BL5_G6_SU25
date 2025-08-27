@@ -111,12 +111,12 @@ public class Experience {
         this.endDate = endDate;
     }
 
-    public boolean isIsCurrent() {
+    public boolean isCurrent() {
         return isCurrent;
     }
 
-    public void setIsCurrent(boolean isCurrent) {
-        this.isCurrent = isCurrent;
+    public void setCurrent(boolean current) {
+        isCurrent = current;
     }
 
     public String getDescription() {

@@ -5,14 +5,11 @@
         <meta charset="UTF-8">
         <title>Tạo CV - TopJobVN</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <!-- Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="/TopJobVN/Assets/css/createCV.css">
     </head>
     <body>
         <%@ include file="header.jsp" %>
-
         <div class="container">
             <h2 class="text-center mt-4">Tạo CV mới</h2>
             <div class="cv-builder">

@@ -95,7 +95,6 @@ public class ResetPasswordController extends HttpServlet {
                     request.getRequestDispatcher("/login.jsp").forward(request, response);
                 }
             } else if (email != null && !email.isEmpty()) {
-                // Handle password reset request
                 if (userDAO.userExistsByEmail(email)) {
                     String resetToken = UUID.randomUUID().toString();
                     if (userDAO.storePasswordResetToken(email, resetToken)) {

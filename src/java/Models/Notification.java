@@ -34,6 +34,16 @@ public class Notification {
         this.is_read = is_read;
         this.created_at = created_at;
     }
+    
+    public Notification(int user_id, String type, String title, String redirect_url, String content, boolean is_read) {
+        this.user_id = user_id;
+        this.type = type;
+        this.title = title;
+        this.redirect_url = redirect_url;
+        this.content = content;
+        this.is_read = is_read;
+    }
+
 
     public int getId() {
         return id;

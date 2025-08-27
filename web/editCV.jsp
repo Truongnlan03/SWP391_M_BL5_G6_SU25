@@ -7,14 +7,11 @@
         <meta charset="UTF-8">
         <title>Chỉnh sửa CV - TopJobVN</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <!-- Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="/TopJobVN/Assets/css/editCV.css">
     </head>
     <body>
         <%@ include file="header.jsp" %>
-
         <div class="container">
             <h2 class="text-center mt-4">Chỉnh sửa CV</h2>
             <div class="cv-builder">
@@ -107,7 +104,6 @@
                     <button class="btn btn-primary mt-2" type="submit">Cập nhật CV</button>
                 </form>
 
-                <!-- CV Preview -->
                 <div class="cv-preview">
                     <div class="cv-header">
                         <img id="previewImageRight" src="${empty cv.pdfFilePath ? 'https://via.placeholder.com/120' : cv.pdfFilePath}" alt="Avatar">

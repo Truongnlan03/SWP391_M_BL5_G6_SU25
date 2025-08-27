@@ -46,15 +46,15 @@
                                 Quản lí CV
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="cvDropdown">
-                                <li><a class="dropdown-item" href="/TopJobVN/create-cv">Tạo mới CV</a></li>
-                                <li><a class="dropdown-item" href="/TopJobVN/list-cv">Danh sách CV</a></li>
+                                <li><a class="dropdown-item" href="/TopJobVN/cv-upload">Tạo mới CV</a></li>
+                                <li><a class="dropdown-item" href="/TopJobVN/list_cv">Danh sách CV</a></li>
                             </ul>
                         </li>
                     </c:if>
 
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/TopJobVN/BlogController">
+                        <a class="nav-link" href="/TopJobVN/home">
                             Blog
                         </a>
                     </li>
@@ -79,12 +79,12 @@
                         </li>
                     </c:if>
                     <li class="nav-item">
-                        <a class="nav-link" href="/TopJobVN/about.jsp">
+                        <a class="nav-link" href="/TopJobVN/home">
                             Về chúng tôi
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/TopJobVN/contact.jsp">
+                        <a class="nav-link" href="/TopJobVN/home">
                             Liên hệ
                         </a>
                     </li>

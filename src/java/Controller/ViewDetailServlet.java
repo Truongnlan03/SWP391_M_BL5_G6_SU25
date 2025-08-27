@@ -19,11 +19,11 @@ public class ViewDetailServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         super.init();
-        postDAO = new PostDAO(); // khởi tạo 1 lần khi servlet load
+        postDAO = new PostDAO();
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String idParam = request.getParameter("id");
 
@@ -41,18 +41,17 @@ public class ViewDetailServlet extends HttpServlet {
                 return;
             }
 
-            // Gửi sang JSP
             request.setAttribute("post", post);
             request.getRequestDispatcher("viewdetail.jsp").forward(request, response);
 
         } catch (NumberFormatException e) {
             Logger.getLogger(ViewDetailServlet.class.getName())
-                  .log(Level.WARNING, "ID không hợp lệ: " + idParam, e);
+                    .log(Level.WARNING, "ID không hợp lệ: " + idParam, e);
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "ID không hợp lệ");
 
         } catch (Exception e) {
             Logger.getLogger(ViewDetailServlet.class.getName())
-                  .log(Level.SEVERE, "Lỗi khi lấy chi tiết bài đăng", e);
+                    .log(Level.SEVERE, "Lỗi khi lấy chi tiết bài đăng", e);
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Có lỗi xảy ra trên server");
         }
     }

@@ -5,13 +5,13 @@
 package Models;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  *
  * @author DELL
  */
 public class JobSeeker {
-
     private int id;
     private String username;
     private String password;
@@ -39,9 +39,19 @@ public class JobSeeker {
     private Date updatedAt;
     private boolean isActive;
 
+   // thêm field này
+
+   
+    // Add profile sections for recruiter modal
+    private java.util.List<Experience> experiences;
+    private java.util.List<Education> educations;
+    private java.util.List<Certificate> certificates;
+    private java.util.List<Award> awards;
+    private java.util.List<CVTemplate> cvTemplates;
+
     public JobSeeker() {
     }
-    
+
     public JobSeeker(String username, String password, String email, String fullName, String phone, Date dateOfBirth, String gender, String address, String profilePicture, String cvFile, String skills, int experienceYears, String education, String desiredJobTitle, double desiredSalary, String jobCategory, String preferredLocation, String careerLevel, String workType, String profileSummary, String portfolioUrl, String languages, Date createdAt, Date updatedAt, boolean isActive) {
         this.username = username;
         this.password = password;
@@ -99,6 +109,9 @@ public class JobSeeker {
         this.isActive = isActive;
     }
 
+
+
+    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -307,4 +320,35 @@ public class JobSeeker {
         this.isActive = active;
     }
 
+    public java.util.List<Experience> getExperiences() {
+        return experiences;
+    }
+    public void setExperiences(java.util.List<Experience> experiences) {
+        this.experiences = experiences;
+    }
+    public java.util.List<Education> getEducations() {
+        return educations;
+    }
+    public void setEducations(java.util.List<Education> educations) {
+        this.educations = educations;
+    }
+    public java.util.List<Certificate> getCertificates() {
+        return certificates;
+    }
+    public void setCertificates(java.util.List<Certificate> certificates) {
+        this.certificates = certificates;
+    }
+    public java.util.List<Award> getAwards() {
+        return awards;
+    }
+    public void setAwards(java.util.List<Award> awards) {
+        this.awards = awards;
+    }
+    public java.util.List<CVTemplate> getCvTemplates() {
+        return cvTemplates;
+    }
+    public void setCvTemplates(java.util.List<CVTemplate> cvTemplates) {
+        this.cvTemplates = cvTemplates;
+    }
+     
 }

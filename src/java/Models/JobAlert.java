@@ -25,6 +25,10 @@ public class JobAlert {
     private Boolean isActive;
     private Timestamp createdAt;
     private Timestamp lastSent;
+    
+    // Additional fields for convenience
+    private String recipientEmail;
+    private String candidateName;
 
     public JobAlert() {
     }
@@ -147,6 +151,36 @@ public class JobAlert {
 
     public void setLastSent(Timestamp lastSent) {
         this.lastSent = lastSent;
+    }
+    
+    public String getRecipientEmail() {
+        return recipientEmail;
+    }
+
+    public void setRecipientEmail(String recipientEmail) {
+        this.recipientEmail = recipientEmail;
+    }
+
+    public String getCandidateName() {
+        return candidateName;
+    }
+
+    public void setCandidateName(String candidateName) {
+        this.candidateName = candidateName;
+    }
+
+    @Override
+    public String toString() {
+        return "JobAlert{" +
+                "id=" + id +
+                ", jobSeekerId=" + jobSeekerId +
+                ", alertName='" + alertName + '\'' +
+                ", keyword='" + keyword + '\'' +
+                ", location='" + location + '\'' +
+                ", frequency='" + frequency + '\'' +
+                ", isActive=" + isActive +
+                ", lastSent=" + lastSent +
+                '}';
     }
 
 }
